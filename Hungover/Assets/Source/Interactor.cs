@@ -4,21 +4,26 @@ namespace Hungover
 {
     public class Interactor : MonoBehaviour
     {
-        private enum State
+        public enum State
         {
             NotInteracting,
-            Interacting
+            Carrying,
+            Inspecting
         }
 
         #region Constants
 
         private const float interactionRange = 1.0f;
 
-        #endregion        
+        #endregion    
+
+        #region Public Members
+
+        public State state;
+
+        #endregion    
 
         #region Private Members
-
-        private State state;
 
         private RaycastHit hit;
         private Interactable curentInteractable;
@@ -35,7 +40,11 @@ namespace Hungover
                 case State.NotInteracting:
                     ScanForInteractable();
                     break;
-                case State.Interacting:
+                case State.Carrying:
+                    ScanForInteractable();
+                    curentInteractable.OnUpdate();
+                    break;
+                case State.Inspecting:
                     curentInteractable.OnUpdate();
                     break;
             }
@@ -44,16 +53,6 @@ namespace Hungover
         #endregion
 
         #region Public Methods
-
-        public void BeginInteraction()
-        {
-            state = State.Interacting;
-        }
-
-        public void EndInteraction() 
-        {
-            state = State.NotInteracting;
-        }
 
         #endregion
 
@@ -77,7 +76,7 @@ namespace Hungover
 
                     if (candidate == null) 
                         return;
-                        
+
                     candidate.ShowInteractableIndicator();
                 }
 
