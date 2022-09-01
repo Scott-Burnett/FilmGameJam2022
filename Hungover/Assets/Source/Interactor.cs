@@ -29,6 +29,8 @@ namespace Hungover
             }
         }
 
+        public Transform CarryPoint => carryPoint;
+
         #endregion    
 
         #region Private Members
@@ -38,11 +40,12 @@ namespace Hungover
         private Interactable candidate;
 
         [SerializeField] private Transform inspectionPoint;
+        [SerializeField] private Transform carryPoint;
         [SerializeField] private StarterAssets.FirstPersonController firstPersonControls;
+
         #endregion
 
         #region Monobehaviour Methods
-
 
         private void Update()
         {
@@ -64,6 +67,7 @@ namespace Hungover
         #endregion
 
         #region Public Methods
+
         public void SetControlsEnabled(bool value)
         {
             firstPersonControls.enabled = value;
@@ -74,6 +78,7 @@ namespace Hungover
             state = State.NotInteracting;
             curentInteractable = null;
         }
+
         #endregion
 
         #region Private Methods
@@ -102,10 +107,10 @@ namespace Hungover
                 
                 if (Input.GetKeyDown(Constants.interactionKeyCode))
                 {
+                    curentInteractable.OnDispose();
                     curentInteractable = candidate;
                     curentInteractable.OnInteract(this);
                 }
-                
             }
         }
 
