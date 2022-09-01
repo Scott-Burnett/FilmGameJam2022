@@ -107,7 +107,7 @@ namespace Hungover
                 
                 if (Input.GetKeyDown(Constants.interactionKeyCode))
                 {
-                    curentInteractable.OnDispose();
+                    curentInteractable?.OnDispose();
                     curentInteractable = candidate;
                     curentInteractable.OnInteract(this);
                 }
