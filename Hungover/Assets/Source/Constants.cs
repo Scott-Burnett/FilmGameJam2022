@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Hungover
 {
     public static class Constants
@@ -5,6 +7,10 @@ namespace Hungover
         #region Constants
 
         public const int interactableLayer = 7;
+        public const int interactableLayerMask = 1 << interactableLayer;
+
+        // ToDo: This shouldnt be a constant here
+        public const KeyCode interactionKeyCode = KeyCode.Mouse1;
         
         #endregion
     }

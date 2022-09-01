@@ -1,4 +1,3 @@
-using Hungover;
 using UnityEngine;
 
 namespace Hungover
@@ -13,18 +12,34 @@ namespace Hungover
 
         #endregion
 
+        #region Virtual Methods
+
+        protected virtual void Initialise(){}
+
+        #endregion
+
         #region Monobehaviour Methods
 
         private void Start()
         {
             gameObject.layer = Constants.interactableLayer;
+            Initialise();
         }
+        
+        #endregion
 
-        private void Update()
+        #region Public Methods
+
+        public void ShowInteractableIndicator()
         {
 
         }
-        
+
+        public void HideInteractableIndicator()
+        {
+            
+        }
+
         #endregion
     }
 }
