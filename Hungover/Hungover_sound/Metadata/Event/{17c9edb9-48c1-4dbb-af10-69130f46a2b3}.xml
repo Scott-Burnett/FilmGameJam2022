@@ -90,7 +90,11 @@
 			<destination>{244bc6c7-b607-414d-9bd8-4a4d6a217d84}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{1cbffd3d-8fae-4ca1-9a8d-198e51cfcf87}" />
+	<object class="MultiSound" id="{1cbffd3d-8fae-4ca1-9a8d-198e51cfcf87}">
+		<relationship name="sounds">
+			<destination>{a37bbd13-db47-4162-a5fb-2de82a871526}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{462123dd-a51f-42fe-8083-fef5a94c4559}">
 		<relationship name="effects">
 			<destination>{8a3de13a-489a-457b-93e5-c3d51d9acb69}</destination>
@@ -113,10 +117,16 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{7d6fdca7-93c1-4257-8497-1847d0180fbd}">
 		<relationship name="effects">
+			<destination>{763c256b-adaa-44c2-ac09-6ffa32f2d975}</destination>
 			<destination>{1508243c-8356-49bf-a06d-784fba85b7ff}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{23cb283a-98da-4fb6-a105-99818e17bf9d}" />
+	<object class="SingleSound" id="{a37bbd13-db47-4162-a5fb-2de82a871526}">
+		<relationship name="audioFile">
+			<destination>{44de626f-358b-41d0-bfdc-69c997419912}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{8a3de13a-489a-457b-93e5-c3d51d9acb69}" />
 	<object class="MixerBusEffectChain" id="{ff818439-348b-41bf-bad0-17671190c4ba}">
 		<relationship name="effects">
@@ -124,6 +134,35 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e37d1c1e-6e71-4dfd-aa4f-6bd72c46a219}" />
+	<object class="SFXReverbEffect" id="{763c256b-adaa-44c2-ac09-6ffa32f2d975}">
+		<property name="decayTime">
+			<value>650</value>
+		</property>
+		<property name="earlyDelay">
+			<value>24</value>
+		</property>
+		<property name="lateDelay">
+			<value>50</value>
+		</property>
+		<property name="HFReference">
+			<value>5500</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>66.5</value>
+		</property>
+		<property name="diffusion">
+			<value>88</value>
+		</property>
+		<property name="lowShelfFrequency">
+			<value>190</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>42</value>
+		</property>
+		<property name="wetLevel">
+			<value>-5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1508243c-8356-49bf-a06d-784fba85b7ff}" />
 	<object class="MixerBusFader" id="{7bd38333-934c-4f7b-be46-04d9358130d5}" />
 </objects>

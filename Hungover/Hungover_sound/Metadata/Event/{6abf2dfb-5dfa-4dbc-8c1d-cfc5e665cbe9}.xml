@@ -5,7 +5,7 @@
 			<value>Button Hover</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{9fa00569-2878-4488-b6de-f470f226957c}</destination>
@@ -90,7 +90,11 @@
 			<destination>{50862e0e-295a-4151-8402-8a0344dd1ed0}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{46e6b823-09c1-4ff9-9deb-3c75b124c06b}" />
+	<object class="MultiSound" id="{46e6b823-09c1-4ff9-9deb-3c75b124c06b}">
+		<relationship name="sounds">
+			<destination>{93c1028a-20ac-4822-90bb-16184b205e7b}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{137cccbb-746d-4571-90d8-c7990c3094f2}">
 		<relationship name="effects">
 			<destination>{71bacca3-6372-47b7-b204-7cff96268a40}</destination>
@@ -113,10 +117,17 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{812ae797-dd85-41d7-87ae-977f8f5f0e9b}">
 		<relationship name="effects">
+			<destination>{20fbf6d3-3c27-4d4e-a2b0-5f93c9d7c72a}</destination>
+			<destination>{5cd71c3b-a970-4068-90f1-7030f8d8f020}</destination>
 			<destination>{aff214ed-80ce-4c71-910b-ac8013dc2de0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e5ebd21d-3fb5-4615-90be-f1353918d291}" />
+	<object class="SingleSound" id="{93c1028a-20ac-4822-90bb-16184b205e7b}">
+		<relationship name="audioFile">
+			<destination>{1dc7bb21-ff74-41d3-9294-eaffecdc45c7}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{71bacca3-6372-47b7-b204-7cff96268a40}" />
 	<object class="MixerBusEffectChain" id="{33c5d935-5e2e-4716-8f59-4faeacbd2034}">
 		<relationship name="effects">
@@ -124,6 +135,21 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e5c56a24-13f1-4570-ba9b-57fe51f5e3f2}" />
+	<object class="CompressorEffect" id="{20fbf6d3-3c27-4d4e-a2b0-5f93c9d7c72a}">
+		<property name="threshold">
+			<value>-7.5</value>
+		</property>
+		<property name="ratio">
+			<value>3</value>
+		</property>
+		<property name="attackTime">
+			<value>8.80000019</value>
+		</property>
+		<property name="gain">
+			<value>3</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{5cd71c3b-a970-4068-90f1-7030f8d8f020}" />
 	<object class="MixerBusFader" id="{aff214ed-80ce-4c71-910b-ac8013dc2de0}" />
 	<object class="MixerBusFader" id="{dbafc11f-f4bf-48a9-b64b-20475b591a6b}" />
 </objects>
