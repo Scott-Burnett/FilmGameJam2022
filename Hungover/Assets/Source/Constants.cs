@@ -10,7 +10,8 @@ namespace Hungover
         public const int interactableLayerMask = 1 << interactableLayer;
 
         // ToDo: This shouldnt be a constant here
-        public const KeyCode interactionKeyCode = KeyCode.Mouse1;
+        public const KeyCode interactionKeyCode = KeyCode.Mouse0;
+        public const KeyCode disposeKeyCode = KeyCode.Mouse1;
         
         #endregion
     }

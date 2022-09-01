@@ -13,13 +13,21 @@ namespace Hungover
 
         #region Constants
 
-        private const float interactionRange = 1.0f;
+        private const float interactionRange = 2.0f;
 
         #endregion    
 
         #region Public Members
 
-        public State state;
+        [HideInInspector] public State state;
+
+        public Transform InspectionPoint 
+        {
+            get 
+            {
+                return inspectionPoint; 
+            }
+        }
 
         #endregion    
 
@@ -29,9 +37,12 @@ namespace Hungover
         private Interactable curentInteractable;
         private Interactable candidate;
 
+        [SerializeField] private Transform inspectionPoint;
+        [SerializeField] private StarterAssets.FirstPersonController firstPersonControls;
         #endregion
 
         #region Monobehaviour Methods
+
 
         private void Update()
         {
@@ -53,7 +64,16 @@ namespace Hungover
         #endregion
 
         #region Public Methods
+        public void SetControlsEnabled(bool value)
+        {
+            firstPersonControls.enabled = value;
+        }
 
+        public void EndInteraction()
+        {
+            state = State.NotInteracting;
+            curentInteractable = null;
+        }
         #endregion
 
         #region Private Methods
@@ -79,12 +99,13 @@ namespace Hungover
 
                     candidate.ShowInteractableIndicator();
                 }
-
+                
                 if (Input.GetKeyDown(Constants.interactionKeyCode))
                 {
                     curentInteractable = candidate;
                     curentInteractable.OnInteract(this);
                 }
+                
             }
         }
 
