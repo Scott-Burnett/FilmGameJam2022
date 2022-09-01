@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{20c1eb42-68fc-408d-bc17-4096db974cd3}">
+		<property name="assetPath">
+			<value>Flip Flop Glass 3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.83683333333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4ff0cbdd-f761-4ee5-854f-3a2f48cb0520}</destination>
+		</relationship>
+	</object>
+</objects>
