@@ -5,7 +5,7 @@
 			<value>Flip Flop Tile</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{05daa717-1673-4dea-97c9-7d8a98671940}</destination>
@@ -114,7 +114,6 @@
 	<object class="MixerBusEffectChain" id="{c0b50b1c-cbca-45a4-ba61-c094df6c7a07}">
 		<relationship name="effects">
 			<destination>{15906995-6506-4769-b059-2c7589f97e1c}</destination>
-			<destination>{4f0634eb-7f38-46ec-9920-fa4269b8d248}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b3474677-fbe1-48bc-a792-0c323309a012}" />
@@ -126,6 +125,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{48d37fe0-7203-4798-b68e-bcb8edf0905d}" />
 	<object class="MixerBusFader" id="{15906995-6506-4769-b059-2c7589f97e1c}" />
-	<object class="SpatialiserEffect" id="{4f0634eb-7f38-46ec-9920-fa4269b8d248}" />
 	<object class="MixerBusFader" id="{b64cd35d-b098-47d5-8176-621a40e10de8}" />
 </objects>

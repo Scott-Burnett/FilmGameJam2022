@@ -5,7 +5,7 @@
 			<value>Flip Flop Carpet</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{05daa717-1673-4dea-97c9-7d8a98671940}</destination>
@@ -118,7 +118,6 @@
 	<object class="MixerBusEffectChain" id="{a9ff4b05-95bd-4f73-bd24-5a7bbb3b355e}">
 		<relationship name="effects">
 			<destination>{52554dad-0343-4207-8eeb-ac5714e4d6b0}</destination>
-			<destination>{dff24d95-4596-4e64-a2f3-eaa5af482354}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a3fd72c1-5cd9-4d3b-ba2e-85f0a957a1a3}" />
@@ -142,7 +141,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{1b927667-a898-499f-afa7-850d6a163352}" />
 	<object class="MixerBusFader" id="{52554dad-0343-4207-8eeb-ac5714e4d6b0}" />
-	<object class="SpatialiserEffect" id="{dff24d95-4596-4e64-a2f3-eaa5af482354}" />
 	<object class="RandomizerModulator" id="{067a7f90-d287-4e1b-8776-17c4c3357434}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
