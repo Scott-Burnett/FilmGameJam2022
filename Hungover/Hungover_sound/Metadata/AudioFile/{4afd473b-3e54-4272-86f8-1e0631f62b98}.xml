@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4afd473b-3e54-4272-86f8-1e0631f62b98}">
+		<property name="assetPath">
+			<value>Flip Flop Wood 5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.5699791666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4ff0cbdd-f761-4ee5-854f-3a2f48cb0520}</destination>
+		</relationship>
+	</object>
+</objects>
