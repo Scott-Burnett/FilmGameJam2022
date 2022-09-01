@@ -5,7 +5,7 @@
 			<value>Boot Tile</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{05daa717-1673-4dea-97c9-7d8a98671940}</destination>
@@ -114,7 +114,6 @@
 	<object class="MixerBusEffectChain" id="{73ce4e1b-f412-4769-95cb-50279ce0f814}">
 		<relationship name="effects">
 			<destination>{fc6be90c-6a31-42e9-b6b2-532989c9de78}</destination>
-			<destination>{aab790c1-285c-4691-ba5c-ffdc359c75ce}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7107dcc8-d3df-442d-918f-0dda9b205bba}" />
@@ -126,6 +125,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{8eeb80dc-470d-45ff-9a2e-3856bc277373}" />
 	<object class="MixerBusFader" id="{fc6be90c-6a31-42e9-b6b2-532989c9de78}" />
-	<object class="SpatialiserEffect" id="{aab790c1-285c-4691-ba5c-ffdc359c75ce}" />
 	<object class="MixerBusFader" id="{79698f70-9b40-411b-9904-732489cc2901}" />
 </objects>

@@ -5,7 +5,7 @@
 			<value>Boot Carpet</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{05daa717-1673-4dea-97c9-7d8a98671940}</destination>
@@ -114,7 +114,6 @@
 	<object class="MixerBusEffectChain" id="{69b8ee9f-f632-44c6-b242-0caee8c6bc04}">
 		<relationship name="effects">
 			<destination>{bad619b9-409b-4f14-aba2-9951d7f45109}</destination>
-			<destination>{c190acff-efc1-4a66-bc14-7c14a76574dd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3b16f931-6fca-43ac-8c05-ed70f514a8e2}" />
@@ -126,6 +125,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{b39a2afd-dc46-46ac-aefc-c9766dc3fea7}" />
 	<object class="MixerBusFader" id="{bad619b9-409b-4f14-aba2-9951d7f45109}" />
-	<object class="SpatialiserEffect" id="{c190acff-efc1-4a66-bc14-7c14a76574dd}" />
 	<object class="MixerBusFader" id="{0bee6f45-86f6-4750-bad2-9556f21805bd}" />
 </objects>
