@@ -772,9 +772,10 @@ GameObject:
   - component: {fileID: 445411863}
   - component: {fileID: 445411862}
   - component: {fileID: 445411861}
-  - component: {fileID: 445411860}
   - component: {fileID: 445411859}
   - component: {fileID: 445411865}
+  - component: {fileID: 445411866}
+  - component: {fileID: 445411860}
   m_Layer: 7
   m_Name: Carryable (1)
   m_TagString: Untagged
@@ -803,27 +804,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 445411858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: f9358874cca58fa4fbb3823ed1acb256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 399109561
-      Data2: 1304119489
-      Data3: 325652655
-      Data4: -1281210865
-    Path: event:/Interface/Button Press
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!65 &445411861
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -917,6 +900,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &445411866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445411858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 399109561
+      Data2: 1304119489
+      Data3: 325652655
+      Data4: -1281210865
+    Path: event:/Interface/Button Press
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &453579054
 GameObject:
   m_ObjectHideFlags: 0

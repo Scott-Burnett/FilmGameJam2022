@@ -30,9 +30,6 @@ public class Inspectable : Interactable
         this.interactor.SetControlsEnabled(false);
 
         LerpTo(interactor.InspectionPoint.position, Quaternion.identity);
-
-
-        GetComponent<FMODUnity.StudioEventEmitter>()?.Play(); //Play sound if FMOD component is set up. Lazy but it works.
     }
 
     public override void OnUpdate()
