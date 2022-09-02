@@ -17,6 +17,7 @@ namespace Hungover
         // ToDo: This shouldnt be a constant here
         public const KeyCode interactionKeyCode = KeyCode.Mouse0;
         public const KeyCode disposeKeyCode = KeyCode.Mouse1;
+        public const KeyCode crouchKeyCode = KeyCode.LeftControl;
         
         #endregion
     }

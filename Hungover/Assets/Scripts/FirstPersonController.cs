@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using Hungover;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -43,6 +45,16 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
+		[Space(10)]
+		[Header("Crouching")]
+
+		[SerializeField]
+		private float crouchHeight = 0.75f;
+		[SerializeField]
+		private float crouchDuration = 0.5f;
+		[SerializeField]
+		private CapsuleCollider playerCapsule = null;
+
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
 		public GameObject CinemachineCameraTarget;
@@ -71,6 +83,9 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+
+		private float initialCapsuleHeight;
+		private bool crouching;
 
 		private const float _threshold = 0.01f;
 
@@ -108,12 +123,17 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			// Crouch Stuff
+			initialCapsuleHeight = playerCapsule.height;
+			crouching = false;
 		}
 
 		private void Update()
 		{
 			JumpAndGravity();
 			GroundedCheck();
+			Crouch();
 			Move();
 		}
 
@@ -246,6 +266,23 @@ namespace StarterAssets
 			}
 		}
 
+		private void Crouch()
+		{
+			if (Input.GetKeyDown(Constants.crouchKeyCode))
+			{
+				if (crouching)
+				{
+					StartCoroutine(LerpPlayerGapsuleHeight(initialCapsuleHeight));
+				}
+				else
+				{
+					StartCoroutine(LerpPlayerGapsuleHeight(crouchHeight));
+				}
+
+				crouching = !crouching;
+			}
+		}
+
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
@@ -263,6 +300,27 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		private IEnumerator LerpPlayerGapsuleHeight(float targetHeight)
+		{
+			float crouchDistance = targetHeight - playerCapsule.height;
+			float crouchRate = crouchDistance / crouchDuration;
+
+			for (float elapsedTime = 0.0f; elapsedTime < crouchDuration; elapsedTime += Time.deltaTime)
+			{
+				float distanceThisFrame = crouchRate * Time.deltaTime;
+				playerCapsule.height += distanceThisFrame;
+
+				Vector3 moveDownDistanceThisFrame = new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);				
+				playerCapsule.center += moveDownDistanceThisFrame;
+				CinemachineCameraTarget.transform.localPosition += moveDownDistanceThisFrame;
+
+				yield return null;
+			}
+
+			playerCapsule.height = targetHeight;
+			yield return null;
 		}
 	}
 }
