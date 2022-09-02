@@ -24,6 +24,15 @@ namespace Hungover
 
         protected virtual void Initialise(){}
 
+        protected void SetLayerRecursively(int layerIndex)
+        {
+            gameObject.layer = layerIndex;
+            foreach (Transform item in transform)
+            {
+                item.gameObject.layer = layerIndex;
+            } 
+        }
+
         #endregion
 
         #region Monobehaviour Methods
@@ -32,7 +41,7 @@ namespace Hungover
         {
             TryGetComponent<StudioEventEmitter>(out audioEmitter);
 
-            gameObject.layer = Constants.interactableLayer;
+            SetLayerRecursively(Constants.interactableLayer);
             Initialise();
         }
         
@@ -56,5 +65,6 @@ namespace Hungover
         }
 
         #endregion
+
     }
 }

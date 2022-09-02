@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Inspectable : Interactable
 {
+    [SerializeField] string description;
+
     private Interactor interactor;
 
     private Vector3 startPosition;
@@ -19,6 +21,9 @@ public class Inspectable : Interactable
         this.interactor.SetControlsEnabled(true);
         this.interactor.EndInteraction();
         this.interactor = null;
+        MainUI.Instance.Fade(new Color(0, 0, 0, 0.75f), Color.clear, 0.75f);
+        MainUI.Instance.HideText();
+        SetLayerRecursively(Constants.interactableLayer);
         LerpTo(startPosition, startRotation);
         transform.rotation = startRotation;
     }
@@ -28,7 +33,9 @@ public class Inspectable : Interactable
         this.interactor = interactor;
         this.interactor.state = Interactor.State.Inspecting;
         this.interactor.SetControlsEnabled(false);
-
+        MainUI.Instance.Fade(Color.clear, new Color(0, 0, 0, 0.75f), 0.75f);
+        MainUI.Instance.ShowText(description);
+        SetLayerRecursively(Constants.inspectingLayer);
         LerpTo(interactor.InspectionPoint.position, Quaternion.identity);
     }
 
