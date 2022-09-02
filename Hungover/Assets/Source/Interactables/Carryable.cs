@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Hungover.Interactables
@@ -32,9 +33,7 @@ namespace Hungover.Interactables
 
             thisRigidBody.isKinematic = true;
 
-            transform.parent = interactor.CarryPoint;
-            transform.localPosition = Vector3.zero;
-            transform.localEulerAngles = Vector3.zero;
+            StartCoroutine(LerpToCarryPoint(0.33f));
         }
 
         public override void OnUpdate()
@@ -54,6 +53,34 @@ namespace Hungover.Interactables
         {
             transform.parent = null;
             thisRigidBody.isKinematic = false;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private IEnumerator LerpToCarryPoint(float lerpTime)
+        {
+            float timeElapsed = 0;
+
+            Vector3 currentPosition = transform.position;
+            Quaternion currentRotation = transform.rotation;
+
+            while (timeElapsed < lerpTime)
+            {
+                transform.position = Vector3.Lerp(currentPosition, interactor.CarryPoint.position, (timeElapsed / lerpTime));
+                transform.rotation = Quaternion.Lerp(currentRotation, interactor.CarryPoint.rotation, (timeElapsed / lerpTime));
+                timeElapsed += Time.deltaTime;
+
+                yield return null;
+            }
+
+            transform.position = interactor.CarryPoint.position;
+            transform.rotation = interactor.CarryPoint.rotation;
+            
+            transform.parent = interactor.CarryPoint;
+            
+            yield return null;
         }
 
         #endregion
