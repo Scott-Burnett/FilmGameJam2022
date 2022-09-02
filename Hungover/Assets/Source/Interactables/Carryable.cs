@@ -17,6 +17,12 @@ namespace Hungover.Interactables
 
         #endregion
 
+        #region Virtual Methods
+
+        protected virtual void OnUse(){}
+
+        #endregion
+
         #region Interactable Methods
 
         public override void OnInteract(Interactor interactor)
@@ -27,6 +33,19 @@ namespace Hungover.Interactables
             transform.parent = interactor.CarryPoint;
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
+        }
+
+        public override void OnUpdate()
+        {
+            if (Input.GetKeyDown(Constants.interactionKeyCode))
+            {
+                OnUse();
+            }
+
+            if (Input.GetKeyDown(Constants.disposeKeyCode))
+            {
+                OnDispose();
+            }
         }
 
         public override void OnDispose()
