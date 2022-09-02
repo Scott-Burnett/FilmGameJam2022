@@ -1,19 +1,14 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Hungover.Interactables
 {
+    [RequireComponent(typeof(Rigidbody))]
     public abstract class Carryable : Interactable
     {
-        #region Constants
-
-        private const float groundCheckRadius = 0.1f;
-
-        #endregion
-
         #region Private Members
 
         private Interactor interactor;
+        private Rigidbody thisRigidBody;
 
         #endregion
 
@@ -25,10 +20,17 @@ namespace Hungover.Interactables
 
         #region Interactable Methods
 
+        protected override void Initialise()
+        {
+            thisRigidBody = GetComponent<Rigidbody>();
+        }
+
         public override void OnInteract(Interactor interactor)
         {
             this.interactor = interactor;
             this.interactor.state = Interactor.State.Carrying;
+
+            thisRigidBody.isKinematic = true;
 
             transform.parent = interactor.CarryPoint;
             transform.localPosition = Vector3.zero;
@@ -51,25 +53,7 @@ namespace Hungover.Interactables
         public override void OnDispose()
         {
             transform.parent = null;
-            StartCoroutine(FallToGround());
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private bool Grounded =>
-            Physics.CheckSphere(transform.position, groundCheckRadius);
-
-        private IEnumerator FallToGround()
-        {
-            Vector3 velocity = Vector3.zero;
-            while (!Grounded)
-            {
-                velocity += Physics.gravity * Time.deltaTime;
-                transform.position -= velocity;
-                yield return null;
-            }
+            thisRigidBody.isKinematic = false;
         }
 
         #endregion
