@@ -49,7 +49,9 @@ namespace StarterAssets
 		[Header("Crouching")]
 
 		[SerializeField]
-		private float crouchHeight = 0.75f;
+		private float crouchHeightReduction = 0.75f;
+		[SerializeField, Range(0.0f, 1.0f)]
+		private float cameraHightReductionFactor = 0.5f;
 		[SerializeField]
 		private float crouchDuration = 0.5f;
 		[SerializeField]
@@ -84,8 +86,14 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
-		private float initialCapsuleHeight;
 		private bool crouching;
+		private Coroutine currentCrouchCoroutine = null;
+		private float initialCapsuleHeight;
+		private float crouchingCapsuleHeight;
+		private Vector3 initialCapsuleCentre;
+		private Vector3 crouchingCapsuleCentre;
+		private Vector3 initialCameraLocalPosition;
+		private Vector3 crouchingCameraLocalPosition;
 
 		private const float _threshold = 0.01f;
 
@@ -126,6 +134,17 @@ namespace StarterAssets
 
 			// Crouch Stuff
 			initialCapsuleHeight = playerCapsule.height;
+			crouchingCapsuleHeight = initialCapsuleHeight - crouchHeightReduction;
+
+			initialCapsuleCentre = playerCapsule.center;
+			crouchingCapsuleCentre = new Vector3(initialCapsuleCentre.x,
+												 initialCapsuleCentre.y - crouchHeightReduction * 0.5f, 
+												 initialCapsuleCentre.z);
+
+			initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
+			crouchingCameraLocalPosition = new Vector3(CinemachineCameraTarget.transform.localPosition.x,
+													   CinemachineCameraTarget.transform.localPosition.y - crouchHeightReduction * cameraHightReductionFactor,
+													   CinemachineCameraTarget.transform.localPosition.z);
 			crouching = false;
 		}
 
@@ -270,14 +289,14 @@ namespace StarterAssets
 		{
 			if (Input.GetKeyDown(Constants.crouchKeyCode))
 			{
-				if (crouching)
+				if (currentCrouchCoroutine != null)
 				{
-					StartCoroutine(LerpPlayerGapsuleHeight(initialCapsuleHeight));
+					StopCoroutine(currentCrouchCoroutine);
 				}
-				else
-				{
-					StartCoroutine(LerpPlayerGapsuleHeight(crouchHeight));
-				}
+
+				currentCrouchCoroutine = crouching 
+					? StartCoroutine(LerpPlayerGapsuleHeight(initialCapsuleHeight, initialCapsuleCentre, initialCameraLocalPosition))
+					: StartCoroutine(LerpPlayerGapsuleHeight(crouchingCapsuleHeight, crouchingCapsuleCentre, crouchingCameraLocalPosition));
 
 				crouching = !crouching;
 			}
@@ -302,24 +321,27 @@ namespace StarterAssets
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
 
-		private IEnumerator LerpPlayerGapsuleHeight(float targetHeight)
+		private IEnumerator LerpPlayerGapsuleHeight(float targetCapsuleHeight, 
+													Vector3 targetCapsuleCentre, 
+													Vector3 targetCameraLocalPosition)
 		{
-			float crouchDistance = targetHeight - playerCapsule.height;
-			float crouchRate = crouchDistance / crouchDuration;
+			float capsuleHeightChange = targetCapsuleHeight - playerCapsule.height;
+			float crouchRate = capsuleHeightChange / crouchDuration;
 
 			for (float elapsedTime = 0.0f; elapsedTime < crouchDuration; elapsedTime += Time.deltaTime)
 			{
 				float distanceThisFrame = crouchRate * Time.deltaTime;
 				playerCapsule.height += distanceThisFrame;
 
-				Vector3 moveDownDistanceThisFrame = new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);				
-				playerCapsule.center += moveDownDistanceThisFrame;
-				CinemachineCameraTarget.transform.localPosition += moveDownDistanceThisFrame;
+				playerCapsule.center += new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				CinemachineCameraTarget.transform.localPosition += new Vector3(0.0f, distanceThisFrame * cameraHightReductionFactor, 0.0f);
 
 				yield return null;
 			}
 
-			playerCapsule.height = targetHeight;
+			playerCapsule.height = targetCapsuleHeight;
+			playerCapsule.center = targetCapsuleCentre;
+			CinemachineCameraTarget.transform.localPosition = targetCameraLocalPosition;
 			yield return null;
 		}
 	}
