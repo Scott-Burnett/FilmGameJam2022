@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
+using Hungover;
 
 namespace StarterAssets
 {
@@ -11,6 +13,8 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		bool crouched = false;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -20,6 +24,7 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+		
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -115,6 +120,44 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			if (Input.GetKeyDown(Constants.crouchKey))
+			{
+				ToggleCrouch();
+			}
+		}
+
+		void ToggleCrouch()
+		{
+			crouched = !crouched;
+			if (crouched)
+			{
+				StartCoroutine(CrouchCoroutine(0.01f, 0.75f, 1));
+			}
+			else
+			{
+				StartCoroutine(CrouchCoroutine(1.7f, 0.75f, 2));
+			}
+		}
+
+		IEnumerator CrouchCoroutine(float targetHeight, float transitionTime, float newSpeed)
+		{
+			MoveSpeed = newSpeed;
+
+			float timeElapsed = 0;
+
+			float currentHeight = _controller.height;
+
+			while (timeElapsed < transitionTime)
+			{
+				_controller.height = Mathf.Lerp(currentHeight, targetHeight, (timeElapsed / transitionTime));
+				timeElapsed += Time.deltaTime;
+
+				yield return null;
+			}
+
+			_controller.height = targetHeight;
+
+			yield return null;
 		}
 
 		private void LateUpdate()
