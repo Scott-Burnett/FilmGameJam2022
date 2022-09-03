@@ -1,3 +1,4 @@
+using Hungover.Interactables.Carryables;
 using UnityEngine;
 
 namespace Hungover.Interactables
@@ -6,7 +7,7 @@ namespace Hungover.Interactables
     {
         #region Editor Fields
 
-        [SerializeField] private Interactable key = null;
+        [SerializeField] private Key key = null;
 
         #endregion
 
