@@ -8,7 +8,8 @@ namespace Hungover.Interactables
         #region Editor Fields
 
         [Header("Sounds")]
-        [SerializeField] private StudioEventEmitter openCloseEmitter = null;
+        [SerializeField] private StudioEventEmitter openEmitter = null;
+        [SerializeField] private StudioEventEmitter closeEmitter = null;
         [SerializeField] private StudioEventEmitter lockedEventEmitter = null;
         [SerializeField] private StudioEventEmitter unlockEventEmitter = null;
 
@@ -53,16 +54,16 @@ namespace Hungover.Interactables
                 return;
             }
 
-            openCloseEmitter?.Play();
-
             if (isOpen)
             {
                 Close();
+                closeEmitter?.Play();
                 isOpen = false;
             }
             else
             {
                 Open();
+                openEmitter?.Play();
                 isOpen = true;
             }
         }

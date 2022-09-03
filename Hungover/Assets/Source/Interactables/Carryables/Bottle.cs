@@ -26,6 +26,10 @@ public class Bottle : Carryable
     {
         Instantiate(shatterEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
-    }
 
+        if (objectInside != null)
+        {
+            Instantiate(objectInside, transform.position, transform.rotation);
+        }
+    }
 }
