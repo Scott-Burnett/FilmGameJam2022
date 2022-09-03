@@ -110,8 +110,11 @@ namespace Hungover
                     candidate.OnInteract(this);
                     candidate.PlayInteractableSound();
 
-                    curentInteractable?.OnDispose();
-                    curentInteractable = candidate;
+                    if (candidate.CausesDisposeCurrentInteractable())
+                    {
+                        curentInteractable?.OnDispose();
+                        curentInteractable = candidate;
+                    }
                 }
             }
         }

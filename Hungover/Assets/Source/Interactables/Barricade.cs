@@ -15,10 +15,10 @@ namespace Hungover.Interactables
 
         #endregion
 
-        #region protected Fields
+        #region Public Fields
 
-        protected bool isLocked = true;
-        protected bool isOpen = false;
+        public bool isLocked = true;
+        public bool isOpen = false;
 
         #endregion
 

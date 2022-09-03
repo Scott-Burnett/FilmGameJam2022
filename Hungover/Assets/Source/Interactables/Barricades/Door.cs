@@ -1,7 +1,6 @@
 using System.Collections;
 using Hungover.Interactables.Carryables;
 using UnityEngine;
-using UnityEditor;
 
 namespace Hungover.Interactables
 {

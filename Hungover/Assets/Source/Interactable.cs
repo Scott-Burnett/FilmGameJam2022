@@ -33,6 +33,8 @@ namespace Hungover
             } 
         }
 
+        public virtual bool CausesDisposeCurrentInteractable() => true;
+
         #endregion
 
         #region Monobehaviour Methods
