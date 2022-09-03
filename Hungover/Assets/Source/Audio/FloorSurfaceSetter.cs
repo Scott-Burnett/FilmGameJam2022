@@ -7,7 +7,11 @@ public class FloorSurfaceSetter : MonoBehaviour
     public LayerMask floorSurfaceTriggers;
     void Update()
     {
-        CheckFloorSurface();
+        if(Time.frameCount % 25 == 0)
+        {
+            CheckFloorSurface();
+        }
+        
     }
 
     void CheckFloorSurface()
