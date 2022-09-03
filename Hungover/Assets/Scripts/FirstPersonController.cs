@@ -13,7 +13,9 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		[SerializeField] Animator characterAnimator;
 		bool crouched = false;
+		bool walking = false;
 
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
@@ -131,11 +133,11 @@ namespace StarterAssets
 			crouched = !crouched;
 			if (crouched)
 			{
-				StartCoroutine(CrouchCoroutine(0.01f, 0.75f, 1));
+				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
 			}
 			else
 			{
-				StartCoroutine(CrouchCoroutine(1.7f, 0.75f, 2));
+				characterAnimator.CrossFade("Idle", 0.5f, 0);
 			}
 		}
 
@@ -196,6 +198,34 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			if (_input.move.magnitude > 0 && !walking)
+			{
+				walking = true;
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Walk", 0.1f, 0);
+				}
+				
+			}
+			else if(_input.move.magnitude <= 0 && walking)
+			{
+				walking = false;
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Idle", 0.1f, 0);
+				}
+				
+			}
+
+			
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
