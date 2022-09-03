@@ -30,13 +30,13 @@ namespace Hungover
         }
 
         public Transform CarryPoint => carryPoint;
+        public Interactable curentInteractable { get; private set; }
 
         #endregion    
 
         #region Private Members
 
         private RaycastHit hit;
-        private Interactable curentInteractable;
         private Interactable candidate;
 
         [SerializeField] private Transform inspectionPoint;
@@ -107,10 +107,11 @@ namespace Hungover
                 
                 if (Input.GetKeyDown(Constants.interactionKeyCode))
                 {
+                    candidate.OnInteract(this);
+                    candidate.PlayInteractableSound();
+
                     curentInteractable?.OnDispose();
                     curentInteractable = candidate;
-                    curentInteractable.OnInteract(this);
-                    curentInteractable.PlayInteractableSound();
                 }
             }
         }
