@@ -25,13 +25,15 @@ namespace Hungover.Interactables
 
         private Vector3 closedEulerAngles;
         private Vector3 openEulerAngles;
+        private int unlockId;
 
         #endregion
 
         #region Barricade Methods
 
         protected override bool ConditionsToUnlockAreMet(Interactor interactor) =>
-            interactor.curentInteractable == key;
+            interactor.curentInteractable is Key keyInHand &&
+            keyInHand.id == unlockId;
 
         protected override void OnUnlock(Interactor interactor)
         {
@@ -58,6 +60,7 @@ namespace Hungover.Interactables
         {
             closedEulerAngles = transform.localEulerAngles;
             openEulerAngles = closedEulerAngles + rotationAxis.up * openAngle;
+            unlockId = key.id;
         }
 
         public override void OnUpdate(){}
