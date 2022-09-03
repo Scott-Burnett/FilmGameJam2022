@@ -87,6 +87,7 @@ namespace StarterAssets
 		private GameObject _mainCamera;
 
 		private bool crouching;
+		private bool bumpingHead;
 		private Coroutine currentCrouchCoroutine = null;
 		private float initialCapsuleHeight;
 		private float crouchingCapsuleHeight;
@@ -94,6 +95,8 @@ namespace StarterAssets
 		private Vector3 crouchingCapsuleCentre;
 		private Vector3 initialCameraLocalPosition;
 		private Vector3 crouchingCameraLocalPosition;
+		private const int standUpCheckLayerMask = Constants.everythingLayerMask ^
+												  Constants.characterLayerMask;
 
 		private const float _threshold = 0.01f;
 
@@ -136,15 +139,15 @@ namespace StarterAssets
 			initialCapsuleHeight = playerCapsule.height;
 			crouchingCapsuleHeight = initialCapsuleHeight - crouchHeightReduction;
 
-			initialCapsuleCentre = playerCapsule.center;
+			initialCapsuleCentre = playerCapsule.transform.localPosition;
 			crouchingCapsuleCentre = new Vector3(initialCapsuleCentre.x,
 												 initialCapsuleCentre.y - crouchHeightReduction * 0.5f, 
 												 initialCapsuleCentre.z);
 
 			initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
-			crouchingCameraLocalPosition = new Vector3(CinemachineCameraTarget.transform.localPosition.x,
-													   CinemachineCameraTarget.transform.localPosition.y - crouchHeightReduction * cameraHightReductionFactor,
-													   CinemachineCameraTarget.transform.localPosition.z);
+			crouchingCameraLocalPosition = new Vector3(initialCameraLocalPosition.x,
+													   initialCameraLocalPosition.y - crouchHeightReduction * cameraHightReductionFactor,
+													   initialCameraLocalPosition.z);
 			crouching = false;
 		}
 
@@ -295,8 +298,8 @@ namespace StarterAssets
 				}
 
 				currentCrouchCoroutine = crouching 
-					? StartCoroutine(LerpPlayerGapsuleHeight(initialCapsuleHeight, initialCapsuleCentre, initialCameraLocalPosition))
-					: StartCoroutine(LerpPlayerGapsuleHeight(crouchingCapsuleHeight, crouchingCapsuleCentre, crouchingCameraLocalPosition));
+					? StartCoroutine(LerpCrouchingstate(initialCapsuleHeight, initialCapsuleCentre, initialCameraLocalPosition))
+					: StartCoroutine(LerpCrouchingstate(crouchingCapsuleHeight, crouchingCapsuleCentre, crouchingCameraLocalPosition));
 
 				crouching = !crouching;
 			}
@@ -309,7 +312,7 @@ namespace StarterAssets
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
 
-		private void OnDrawGizmosSelected()
+		private void OnDrawGizmos()
 		{
 			Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
 			Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
@@ -319,11 +322,15 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+
+			Gizmos.color = bumpingHead ? transparentRed : transparentGreen;
+			Vector3 headPosition = playerCapsule.transform.position + playerCapsule.transform.up * playerCapsule.height * 0.5f;
+			Gizmos.DrawSphere(headPosition, GroundedRadius);
 		}
 
-		private IEnumerator LerpPlayerGapsuleHeight(float targetCapsuleHeight, 
-													Vector3 targetCapsuleCentre, 
-													Vector3 targetCameraLocalPosition)
+		private IEnumerator LerpCrouchingstate(float targetCapsuleHeight, 
+											   Vector3 targetCapsuleCentre, 
+											   Vector3 targetCameraLocalPosition)
 		{
 			float capsuleHeightChange = targetCapsuleHeight - playerCapsule.height;
 			float crouchRate = capsuleHeightChange / crouchDuration;
@@ -331,16 +338,24 @@ namespace StarterAssets
 			for (float elapsedTime = 0.0f; elapsedTime < crouchDuration; elapsedTime += Time.deltaTime)
 			{
 				float distanceThisFrame = crouchRate * Time.deltaTime;
+
+				Vector3 headCheckPosition = playerCapsule.transform.position + playerCapsule.transform.up * distanceThisFrame;
+				bumpingHead = Physics.CheckSphere(headCheckPosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+				if (bumpingHead)
+				{
+					yield break;
+				}
+
 				playerCapsule.height += distanceThisFrame;
 
-				playerCapsule.center += new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				playerCapsule.transform.localPosition += new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
 				CinemachineCameraTarget.transform.localPosition += new Vector3(0.0f, distanceThisFrame * cameraHightReductionFactor, 0.0f);
 
 				yield return null;
 			}
 
 			playerCapsule.height = targetCapsuleHeight;
-			playerCapsule.center = targetCapsuleCentre;
+			playerCapsule.transform.localPosition = targetCapsuleCentre;
 			CinemachineCameraTarget.transform.localPosition = targetCameraLocalPosition;
 			yield return null;
 		}
