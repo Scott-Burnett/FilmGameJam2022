@@ -133,12 +133,11 @@ namespace StarterAssets
 			crouched = !crouched;
 			if (crouched)
 			{
-				StartCoroutine(CrouchCoroutine(0.01f, 0.75f, 1));
-				characterAnimator.CrossFade("Crawl", 0.5f, 0);
+				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
 			}
 			else
 			{
-				StartCoroutine(CrouchCoroutine(1.7f, 0.75f, 2));
+				characterAnimator.CrossFade("Idle", 0.5f, 0);
 			}
 		}
 
@@ -202,12 +201,28 @@ namespace StarterAssets
 			if (_input.move.magnitude > 0 && !walking)
 			{
 				walking = true;
-				characterAnimator.CrossFade("Walk", 0.1f, 0);
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Walk", 0.1f, 0);
+				}
+				
 			}
 			else if(_input.move.magnitude <= 0 && walking)
 			{
 				walking = false;
-				characterAnimator.CrossFade("Idle", 0.1f, 0);
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Idle", 0.1f, 0);
+				}
+				
 			}
 
 			

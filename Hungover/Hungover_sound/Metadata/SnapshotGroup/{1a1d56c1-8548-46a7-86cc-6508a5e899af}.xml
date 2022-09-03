@@ -3,10 +3,10 @@
 	<object class="SnapshotList" id="{1a1d56c1-8548-46a7-86cc-6508a5e899af}">
 		<relationship name="items">
 			<destination>{eeff6052-a278-4174-b51f-116b13a03d2f}</destination>
-			<destination>{36f446bd-fefe-4a57-99b0-32e2ef77a519}</destination>
-			<destination>{6c9513ae-f1c6-4f4e-ad90-af3e06c40c24}</destination>
 			<destination>{1cea781d-0d2f-4fef-b80c-0d1adbf87ffc}</destination>
+			<destination>{6c9513ae-f1c6-4f4e-ad90-af3e06c40c24}</destination>
 			<destination>{7ce2ab96-6b38-440d-b19c-38ec9b43e633}</destination>
+			<destination>{36f446bd-fefe-4a57-99b0-32e2ef77a519}</destination>
 			<destination>{fa6cda6e-2ae9-44c5-8da7-781bf5361333}</destination>
 		</relationship>
 		<relationship name="mixer">

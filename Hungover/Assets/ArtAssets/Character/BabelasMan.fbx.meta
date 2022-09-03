@@ -27,6 +27,18 @@ ModelImporter:
   - first:
       74: 2933577835342229695
     second: metarig|Walk
+  - first:
+      74: 7989074992803724023
+    second: CrawlIdle
+  - first:
+      74: 9032440293868085569
+    second: metarig|CrawlIdle
+  - first:
+      74: -4735723640971049857
+    second: metarig|Wiggle
+  - first:
+      74: -7264665462923652115
+    second: Empty|Wiggle
   externalObjects: {}
   materials:
     materialImportMode: 2

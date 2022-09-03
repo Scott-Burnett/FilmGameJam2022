@@ -252,7 +252,7 @@
 			<value>6</value>
 		</property>
 		<property name="rate">
-			<value>0.0449999981</value>
+			<value>0.0149999997</value>
 		</property>
 		<property name="phase">
 			<value>-26</value>
@@ -272,7 +272,7 @@
 			<value>6</value>
 		</property>
 		<property name="rate">
-			<value>0.0449999981</value>
+			<value>0.0149999997</value>
 		</property>
 		<property name="phase">
 			<value>-28</value>
@@ -292,7 +292,7 @@
 			<value>6</value>
 		</property>
 		<property name="rate">
-			<value>0.0299999993</value>
+			<value>0.00999999978</value>
 		</property>
 		<property name="phase">
 			<value>36</value>
