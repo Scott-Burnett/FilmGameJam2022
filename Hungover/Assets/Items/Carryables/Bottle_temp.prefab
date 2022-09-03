@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2172037563607352993}
   - component: {fileID: 2172037563607353019}
   m_Layer: 0
-  m_Name: Bottle
+  m_Name: Bottle_temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
