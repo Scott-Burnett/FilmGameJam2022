@@ -34,19 +34,17 @@ namespace Hungover.Interactables
 
         protected override void OnUnlock(Interactor interactor)
         {
-            Destroy(interactor.curentInteractable);
+            Destroy(interactor.curentInteractable.gameObject);
         }
 
         protected override void Open()
         {
-            Debug.Log("Opening");
             StopAllCoroutines();
             StartCoroutine(LerpToAngle(openEulerAngles));
         }
 
         protected override void Close()
         {
-            Debug.Log("Closing");
             StopAllCoroutines();
             StartCoroutine(LerpToAngle(closedEulerAngles));
         }
