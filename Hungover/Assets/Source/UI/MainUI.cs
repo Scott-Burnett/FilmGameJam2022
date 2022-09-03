@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MainUI : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MainUI : MonoBehaviour
     }
     [SerializeField] Image inspectionFade;
     [SerializeField] TextMeshProUGUI descriptionText;
+    [SerializeField] SafeKeypad keypad;
 
     public void ShowText(string text)
     {
@@ -23,6 +25,15 @@ public class MainUI : MonoBehaviour
     {
         descriptionText.text = "";
         descriptionText.enabled = false;
+    }
+
+    public void ShowKeypad(int codeRequired, Action success, Action failure)
+    {
+        keypad.Show(codeRequired, success, failure);
+    }
+    public void HideKeypad()
+    {
+        keypad.Hide();
     }
 
     public void Fade(Color startColour, Color targetColour, float lerpTime)
