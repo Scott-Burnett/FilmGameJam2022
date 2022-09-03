@@ -69,7 +69,6 @@ namespace Hungover.Interactables
         private IEnumerator LerpToAngle(Vector3 targetEulerAngles)
         {
             float angleToRotate = targetEulerAngles.y - transform.localEulerAngles.y;
-            Debug.Log("Angle To Rotate: " + angleToRotate);
             float degreesPerSecond = angleToRotate / openDuration;
             float elapsedTime = 0.0f;
             while (elapsedTime < openDuration)
