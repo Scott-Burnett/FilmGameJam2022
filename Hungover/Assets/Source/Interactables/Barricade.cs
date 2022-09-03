@@ -17,6 +17,7 @@ namespace Hungover.Interactables
 
         #region Virtual Methods
 
+        protected virtual void OnUnlock(Interactor interactor){}
         protected virtual void Open(){}
         protected virtual void Close(){}
 
@@ -29,6 +30,7 @@ namespace Hungover.Interactables
             if (ConditionsToUnlockAreMet(interactor))
             {
                 isLocked = false;
+                OnUnlock(interactor);
             }
 
             if (isLocked)
