@@ -27,7 +27,8 @@ namespace Hungover.Interactables
 
         public override void OnInteract(Interactor interactor)
         {
-            if (ConditionsToUnlockAreMet(interactor))
+            if (ConditionsToUnlockAreMet(interactor) &&
+                isLocked)
             {
                 isLocked = false;
                 OnUnlock(interactor);
