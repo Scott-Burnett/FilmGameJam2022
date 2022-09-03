@@ -1,7 +1,19 @@
+using FMODUnity;
+using UnityEngine;
+
 namespace Hungover.Interactables
 {
     public abstract class Barricade : Interactable
     {
+        #region Editor Fields
+
+        [Header("Sounds")]
+        [SerializeField] private StudioEventEmitter openCloseEmitter = null;
+        [SerializeField] private StudioEventEmitter lockedEventEmitter = null;
+        [SerializeField] private StudioEventEmitter unlockEventEmitter = null;
+
+        #endregion
+
         #region protected Fields
 
         protected bool isLocked = true;
@@ -31,13 +43,17 @@ namespace Hungover.Interactables
                 isLocked)
             {
                 isLocked = false;
+                unlockEventEmitter?.Play();
                 OnUnlock(interactor);
             }
 
             if (isLocked)
             {
+                lockedEventEmitter?.Play();
                 return;
             }
+
+            openCloseEmitter?.Play();
 
             if (isOpen)
             {

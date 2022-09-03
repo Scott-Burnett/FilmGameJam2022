@@ -9,6 +9,7 @@ namespace Hungover.Interactables
     {
         #region Editor Fields
 
+        [Space(10)]
         [Header("References")]
         [SerializeField] private Key key = null;
         [SerializeField] private Transform rotationAxis = null;
