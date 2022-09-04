@@ -114,6 +114,7 @@ public class SafeKeypad : MonoBehaviour
     public void CodeFailed()
     {
         OnCodeFailure?.Invoke();
+        GetComponent<FMODUnity.StudioEventEmitter>()?.Play();
     }
 
     void Reset()
