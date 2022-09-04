@@ -5,10 +5,10 @@
 			<value>Safe Button Press</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{075d6875-5bfb-4a5e-aac6-2a71e4c8abf9}</destination>
+			<destination>{c1e0c333-3de7-4de2-9ddc-2533385c23aa}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{ceb25b68-92a1-4a93-8ac0-f24115efd766}</destination>
@@ -118,7 +118,6 @@
 	<object class="MixerBusEffectChain" id="{49ac6b6e-a54c-41e8-b353-a4f45371f54a}">
 		<relationship name="effects">
 			<destination>{83933a8a-6605-4c83-9a3a-f6c659cd6449}</destination>
-			<destination>{44089940-bfdf-4b3d-a45f-8c4948e95eaa}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d0153022-fa70-45f3-84bc-91847d8093f1}" />
@@ -141,7 +140,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{bb3f03e6-0198-4d90-9ee8-109c2fb54dea}" />
 	<object class="MixerBusFader" id="{83933a8a-6605-4c83-9a3a-f6c659cd6449}" />
-	<object class="SpatialiserEffect" id="{44089940-bfdf-4b3d-a45f-8c4948e95eaa}" />
 	<object class="RandomizerModulator" id="{e6b653da-0c72-468f-9d06-b11a0d8ce16b}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>

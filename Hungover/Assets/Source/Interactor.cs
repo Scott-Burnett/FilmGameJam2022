@@ -14,6 +14,8 @@ namespace Hungover
         #region Constants
 
         private const float interactionRange = 2.0f;
+        private const int interactionLayerMask = Constants.interactableLayerMask |
+                                                 Constants.doorLayerMask;
 
         #endregion    
 
@@ -31,13 +33,13 @@ namespace Hungover
 
         public Transform CarryPoint => carryPoint;
         public Interactable curentInteractable { get; private set; }
+        public Interactable candidate { get; private set; }
 
         #endregion    
 
         #region Private Members
 
         private RaycastHit hit;
-        private Interactable candidate;
 
         [SerializeField] private Transform inspectionPoint;
         [SerializeField] private Transform carryPoint;
@@ -84,7 +86,7 @@ namespace Hungover
         #region Private Methods
 
         private bool CameraIsLookingAtObject() =>
-            Physics.Raycast(transform.position, transform.forward, out hit, interactionRange, Constants.interactableLayerMask);
+            Physics.Raycast(transform.position, transform.forward, out hit, interactionRange, interactionLayerMask);
 
         private bool ObjectIsInteractable(out Interactable interactableComponent) =>
             hit.collider.gameObject.TryGetComponent<Interactable>(out interactableComponent);
@@ -99,8 +101,10 @@ namespace Hungover
                     candidate?.HideInteractableIndicator();
                     candidate = newCandidate;
 
-                    if (candidate == null) 
+                    if (candidate == null)
+                    {
                         return;
+                    }
 
                     candidate.ShowInteractableIndicator();
                 }
