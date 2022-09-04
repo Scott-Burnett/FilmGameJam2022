@@ -82,7 +82,7 @@ public class CookingPot : Interactable
         if (plastic && chemical && gunpowder)
         {
             var c4 = Instantiate(c4Prefab, cookPoint.position, Quaternion.identity);
-            c4.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, -1) * 2, ForceMode.Impulse);
+            c4.GetComponent<Rigidbody>().AddForce(cookPoint.up + cookPoint.forward * 2, ForceMode.Impulse);
         }
     }
 }
