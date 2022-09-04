@@ -17,8 +17,8 @@ namespace Hungover.Interactables
 
         #region Public Fields
 
-        public bool isLocked = true;
-        public bool isOpen = false;
+        [HideInInspector] public bool isLocked = true;
+        [HideInInspector] public bool isOpen = false;
 
         #endregion
 
@@ -37,6 +37,11 @@ namespace Hungover.Interactables
         #endregion
 
         #region Interactable Methods
+
+        protected override void Initialise()
+        {
+            SetLayerRecursively(Constants.doorLayer);
+        }
 
         public override bool CausesDisposeCurrentInteractable() => false;
 

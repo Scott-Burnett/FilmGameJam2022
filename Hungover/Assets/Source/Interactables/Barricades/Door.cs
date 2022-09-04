@@ -60,6 +60,7 @@ namespace Hungover.Interactables
 
         protected override void Initialise()
         {
+            base.Initialise();
             closedEulerAngles = transform.localEulerAngles;
             openEulerAngles = closedEulerAngles + rotationAxis.up * openAngle;
             if (key != null)
