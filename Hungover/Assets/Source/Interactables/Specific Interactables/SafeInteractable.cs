@@ -1,10 +1,18 @@
 using Hungover;
 using System.Collections;
 using System.Collections.Generic;
+using Hungover.Interactables.Doors;
 using UnityEngine;
 
 public class SafeInteractable : Interactable
 {
+    #region Editor Fields
+
+    [SerializeField]
+    private SafeDoor safeDoor = null;
+
+    #endregion
+
     Interactor interactor;
     public override void OnDispose()
     {
@@ -27,6 +35,9 @@ public class SafeInteractable : Interactable
                         () => 
                         {
                             print("Safe open");
+                            safeDoor.Unlock();
+                            safeDoor.OnInteract(interactor);
+                            SetLayerRecursively(Constants.defaultLayer);
                             OnDispose();
                         }, 
                         () =>
