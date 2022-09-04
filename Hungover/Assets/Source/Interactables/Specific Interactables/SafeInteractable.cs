@@ -1,6 +1,5 @@
 using Hungover;
-using System.Collections;
-using System.Collections.Generic;
+using FMODUnity;
 using Hungover.Interactables.Doors;
 using UnityEngine;
 
@@ -8,8 +7,8 @@ public class SafeInteractable : Interactable
 {
     #region Editor Fields
 
-    [SerializeField]
-    private SafeDoor safeDoor = null;
+    [SerializeField] private SafeDoor safeDoor = null;
+    [SerializeField] private StudioEventEmitter failEmitter = null;
 
     #endregion
 
@@ -18,6 +17,7 @@ public class SafeInteractable : Interactable
     protected override void Initialise()
     {
         SetLayerRecursively(Constants.doorLayer);
+        DisableInteractSound();
     }
 
     public override void OnDispose()
@@ -47,6 +47,7 @@ public class SafeInteractable : Interactable
                         () =>
                         {
                             // Incorrect Code Entred
+                            failEmitter?.Play();
                         });
 
         MainUI.Instance.ShowText("Enter safe code...");
