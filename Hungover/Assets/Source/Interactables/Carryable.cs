@@ -45,7 +45,7 @@ namespace Hungover.Interactables
 
             if (Input.GetKeyDown(Constants.disposeKeyCode))
             {
-                OnDispose();
+                Drop();
             }
         }
 
@@ -81,6 +81,13 @@ namespace Hungover.Interactables
             transform.parent = interactor.CarryPoint;
             
             yield return null;
+        }
+
+        private void Drop()
+        {
+            transform.parent = null;
+            thisRigidBody.isKinematic = false;
+            interactor.EndInteraction();
         }
 
         #endregion

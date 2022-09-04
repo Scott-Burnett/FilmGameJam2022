@@ -33,13 +33,13 @@ namespace Hungover
 
         public Transform CarryPoint => carryPoint;
         public Interactable curentInteractable { get; private set; }
+        public Interactable candidate { get; private set; }
 
         #endregion    
 
         #region Private Members
 
         private RaycastHit hit;
-        private Interactable candidate;
 
         [SerializeField] private Transform inspectionPoint;
         [SerializeField] private Transform carryPoint;
@@ -101,8 +101,10 @@ namespace Hungover
                     candidate?.HideInteractableIndicator();
                     candidate = newCandidate;
 
-                    if (candidate == null) 
+                    if (candidate == null)
+                    {
                         return;
+                    }
 
                     candidate.ShowInteractableIndicator();
                 }
