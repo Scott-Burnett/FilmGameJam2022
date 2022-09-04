@@ -100,12 +100,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4154952565602292771}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4477671104385643464 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
-    type: 3}
-  m_PrefabInstance: {fileID: 4154952565602292771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &-6214314752227364859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +179,8 @@ MonoBehaviour:
   isLocked: 1
   isOpen: 0
   key: {fileID: 0}
-  rotationAxis: {fileID: 4477671104385643464}
-  openAngle: 90
+  rotationAxis: {fileID: 0}
+  openAngle: 81.56
   openDuration: 0.5
 --- !u!114 &2951943428103277500
 MonoBehaviour:
@@ -248,3 +242,16 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!65 &1438632719899517992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0022604635, y: 0.00959056, z: 0.019857716}
+  m_Center: {x: -0.00008402547, y: 0.0047252183, z: 0.009990107}

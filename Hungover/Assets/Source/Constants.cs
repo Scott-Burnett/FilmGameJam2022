@@ -8,6 +8,8 @@ namespace Hungover
 
         public const int defaultLayer = 0;
         public const int defaultLayerMask = 1 << defaultLayer;
+        public const int doorLayer = 6;
+        public const int doorLayerMask = 1 << doorLayer;
         public const int interactableLayer = 7;
         public const int interactableLayerMask = 1 << interactableLayer;
         public const int characterLayer = 8;

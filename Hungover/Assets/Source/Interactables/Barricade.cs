@@ -38,6 +38,11 @@ namespace Hungover.Interactables
 
         #region Interactable Methods
 
+        protected override void Initialise()
+        {
+            SetLayerRecursively(Constants.doorLayer);
+        }
+
         public override bool CausesDisposeCurrentInteractable() => false;
 
         public override void OnInteract(Interactor interactor)
