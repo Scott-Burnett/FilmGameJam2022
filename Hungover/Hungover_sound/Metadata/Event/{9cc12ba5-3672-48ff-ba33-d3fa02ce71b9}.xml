@@ -138,11 +138,20 @@
 		<property name="filterTypeA">
 			<value>11</value>
 		</property>
+		<property name="filterTypeB">
+			<value>1</value>
+		</property>
 		<property name="frequencyA">
 			<value>623.349548</value>
 		</property>
+		<property name="frequencyB">
+			<value>7807.50684</value>
+		</property>
 		<property name="qualityA">
 			<value>0.486691207</value>
+		</property>
+		<property name="qualityB">
+			<value>0.50773567</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{96cdcccb-f094-4534-9f0f-d816e714ba62}" />
