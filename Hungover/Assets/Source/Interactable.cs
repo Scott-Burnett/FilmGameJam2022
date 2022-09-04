@@ -8,7 +8,7 @@ namespace Hungover
     {
         #region Private Members
 
-        private StudioEventEmitter audioEmitter;
+        private StudioEventEmitter interactAudioEmitter;
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Hungover
 
         private void Start()
         {
-            TryGetComponent<StudioEventEmitter>(out audioEmitter);
+            TryGetComponent<StudioEventEmitter>(out interactAudioEmitter);
 
             SetLayerRecursively(Constants.interactableLayer);
             Initialise();
@@ -63,10 +63,18 @@ namespace Hungover
 
         public void PlayInteractableSound()
         {
-            audioEmitter?.Play();
+            interactAudioEmitter?.Play();
         }
 
         #endregion
 
+        #region Protected Methods
+
+        protected void DisableInteractSound()
+        {
+            interactAudioEmitter = null;
+        }
+
+        #endregion
     }
 }

@@ -189,6 +189,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5617216203210757533, guid: c42ffedbdc3eadf4286d4e817f8c3af9, type: 3}
+--- !u!114 &1512745541567975327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605910620694761384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442917132
+      Data2: 1301903563
+      Data3: 1028762788
+      Data4: -1018965543
+    Path: event:/SFX/Interaction Sounds/Safes/Safe Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &6299833721741701860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf0befef2b39e243bcb4f0dcbab7f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openEmitter: {fileID: 0}
-  closeEmitter: {fileID: 0}
+  openEmitter: {fileID: 1512745541567975327}
+  closeEmitter: {fileID: 1512745541567975327}
   lockedEventEmitter: {fileID: 0}
   unlockEventEmitter: {fileID: 0}
   isLocked: 1

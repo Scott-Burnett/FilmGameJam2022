@@ -67,6 +67,7 @@ namespace Hungover.Interactables
             {
                 unlockId = key.id;
             }
+            DisableInteractSound();
         }
 
         public override void OnUpdate(){}
