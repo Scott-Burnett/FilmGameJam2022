@@ -9,6 +9,7 @@ public class SafeInteractable : Interactable
 
     [SerializeField] private SafeDoor safeDoor = null;
     [SerializeField] private StudioEventEmitter failEmitter = null;
+    [SerializeField] private int unlockCode = 0000;
 
     #endregion
 
@@ -35,7 +36,7 @@ public class SafeInteractable : Interactable
         this.interactor.state = Interactor.State.Inspecting;
         this.interactor.SetControlsEnabled(false);
         
-        MainUI.Instance.ShowKeypad(1234, 
+        MainUI.Instance.ShowKeypad(unlockCode, 
                         () => 
                         {
                             // Correct Code Entred

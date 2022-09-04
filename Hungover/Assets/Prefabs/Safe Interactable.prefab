@@ -351,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   safeDoor: {fileID: 6299833721741701860}
   failEmitter: {fileID: 8833281230022598647}
+  unlockCode: 1234
 --- !u!114 &8833281230022598647
 MonoBehaviour:
   m_ObjectHideFlags: 0
