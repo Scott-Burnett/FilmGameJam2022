@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - LevelBlockout
+  - Plastic
+  - Chemical
+  - Gunpowder
   layers:
   - Default
   - TransparentFX

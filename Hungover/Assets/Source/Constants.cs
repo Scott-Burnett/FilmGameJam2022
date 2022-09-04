@@ -22,6 +22,11 @@ namespace Hungover
         public const KeyCode disposeKeyCode = KeyCode.Mouse1;
         public const KeyCode crouchKey = KeyCode.C;
 
+
+        public const string plasticTag = "Plastic";
+        public const string chemicalTag = "Chemical";
+        public const string gunpowderTag = "Gunpowder";
+
         #endregion
     }
 }
