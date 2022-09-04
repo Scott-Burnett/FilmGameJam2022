@@ -38,6 +38,8 @@ namespace Hungover.Interactables
 
         #region Interactable Methods
 
+        public override bool CausesDisposeCurrentInteractable() => false;
+
         public override void OnInteract(Interactor interactor)
         {
             if (ConditionsToUnlockAreMet(interactor) &&

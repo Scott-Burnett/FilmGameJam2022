@@ -31,12 +31,15 @@ namespace Hungover.Interactables
         #region Barricade Methods
 
         protected override bool ConditionsToUnlockAreMet(Interactor interactor) =>
-            interactor.curentInteractable is Key keyInHand &&
-            keyInHand.id == unlockId;
+            key == null ||
+            InteractorIsHoldingKey(interactor);
 
         protected override void OnUnlock(Interactor interactor)
         {
-            Destroy(interactor.curentInteractable.gameObject);
+            if (InteractorIsHoldingKey(interactor))
+            {
+                Destroy(interactor.curentInteractable.gameObject);
+            }
         }
 
         protected override void Open()
@@ -59,7 +62,10 @@ namespace Hungover.Interactables
         {
             closedEulerAngles = transform.localEulerAngles;
             openEulerAngles = closedEulerAngles + rotationAxis.up * openAngle;
-            unlockId = key.id;
+            if (key != null)
+            {
+                unlockId = key.id;
+            }
         }
 
         public override void OnUpdate(){}
@@ -73,17 +79,20 @@ namespace Hungover.Interactables
         {
             float angleToRotate = targetEulerAngles.y - transform.localEulerAngles.y;
             float degreesPerSecond = angleToRotate / openDuration;
-            float elapsedTime = 0.0f;
-            while (elapsedTime < openDuration)
+            
+            for (float elapsedTime = 0.0f; elapsedTime < openDuration; elapsedTime += Time.deltaTime)
             {
                 transform.RotateAround(rotationAxis.position, rotationAxis.up, degreesPerSecond * Time.deltaTime);
-                elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
             transform.localEulerAngles = targetEulerAngles;
             yield return null;
         }
+
+        private bool InteractorIsHoldingKey(Interactor interactor) =>
+            interactor.curentInteractable is Key keyInHand &&
+            keyInHand.id == unlockId;
 
         #endregion
     }

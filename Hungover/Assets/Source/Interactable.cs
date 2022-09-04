@@ -15,14 +15,14 @@ namespace Hungover
         #region Abstract Methods
         
         public abstract void OnInteract(Interactor interactor);
-        public abstract void OnUpdate();
-        public abstract void OnDispose();
 
         #endregion
 
         #region Virtual Methods
 
         protected virtual void Initialise(){}
+        public virtual void OnUpdate(){}
+        public virtual void OnDispose(){}
 
         protected void SetLayerRecursively(int layerIndex)
         {

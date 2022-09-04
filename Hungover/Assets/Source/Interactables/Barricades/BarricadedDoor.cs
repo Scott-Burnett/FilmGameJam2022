@@ -15,7 +15,8 @@ namespace Hungover.Interactables.Barricades.Doors
         #region Door Methods
 
         protected override bool ConditionsToUnlockAreMet(Interactor interactor) => 
-            barricades.All(barricade => !barricade.isLocked);
+            barricades.All(barricade => !barricade.isLocked) &&
+            base.ConditionsToUnlockAreMet(interactor);
 
         #endregion
     }
