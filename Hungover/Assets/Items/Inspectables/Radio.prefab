@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &118579753488299276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8553147039523751302}
+  - component: {fileID: 931074810243017670}
+  - component: {fileID: 7467652197284523397}
+  - component: {fileID: 2516775817288401692}
+  m_Layer: 7
+  m_Name: Radio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8553147039523751302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118579753488299276}
+  m_LocalRotation: {x: 0, y: 0.48595408, z: 0, w: 0.87398434}
+  m_LocalPosition: {x: 3.324, y: 0.85, z: -5.911}
+  m_LocalScale: {x: 0.28511298, y: 0.28511298, z: 0.28511298}
+  m_Children:
+  - {fileID: 7031277846140956667}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 58.15, z: 0}
+--- !u!65 &931074810243017670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118579753488299276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.51265, y: 0.92578924, z: 0.7871966}
+  m_Center: {x: 0.009830688, y: 1.68, z: 0.0022784616}
+--- !u!114 &7467652197284523397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118579753488299276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e0047ad7e23974083441bfc63f4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "This thing is on the fritz. I\u2019m gatvol man, I was hoping to
+    catch the new fokofpoliesikar track."
+--- !u!114 &2516775817288401692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118579753488299276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1489263568
+      Data2: 1229521213
+      Data3: 701209257
+      Data4: -69783087
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Radio Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1001 &7358499778997733392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8553147039523751302}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 201.8734
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 201.87338
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 201.8734
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.047
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710695
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000035800834
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8262f89629d6981449d4e72540ce252e, type: 2}
+    - target: {fileID: 919132149155446097, guid: ca55e19238cf7074f87aee73bd0cc64a,
+        type: 3}
+      propertyPath: m_Name
+      value: Radio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca55e19238cf7074f87aee73bd0cc64a, type: 3}
+--- !u!4 &7031277846140956667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca55e19238cf7074f87aee73bd0cc64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7358499778997733392}
+  m_PrefabAsset: {fileID: 0}
