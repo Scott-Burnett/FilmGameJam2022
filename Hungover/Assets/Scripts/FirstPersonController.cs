@@ -14,6 +14,8 @@ namespace StarterAssets
 	public class FirstPersonController : MonoBehaviour
 	{
 		[SerializeField] Animator characterAnimator;
+		[SerializeField] FMODUnity.StudioGlobalParameterTrigger crouchTrigger;
+		[SerializeField] FMODUnity.StudioGlobalParameterTrigger standTrigger;
 		bool crouched = false;
 		bool walking = false;
 
@@ -133,10 +135,14 @@ namespace StarterAssets
 			crouched = !crouched;
 			if (crouched)
 			{
+				MoveSpeed = 0.5f;
+				crouchTrigger.TriggerParameters();
 				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
 			}
 			else
 			{
+				MoveSpeed = 2;
+				standTrigger.TriggerParameters();
 				characterAnimator.CrossFade("Idle", 0.5f, 0);
 			}
 		}
