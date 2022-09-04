@@ -14,6 +14,12 @@ public class SafeInteractable : Interactable
     #endregion
 
     Interactor interactor;
+
+    protected override void Initialise()
+    {
+        SetLayerRecursively(Constants.doorLayer);
+    }
+
     public override void OnDispose()
     {
         this.interactor.SetControlsEnabled(true);
@@ -21,8 +27,6 @@ public class SafeInteractable : Interactable
         this.interactor = null;
         MainUI.Instance.HideText();
         MainUI.Instance.HideKeypad();
-        GetComponent<Collider>().enabled = true;
-        
     }
 
     public override void OnInteract(Interactor interactor)
@@ -34,7 +38,7 @@ public class SafeInteractable : Interactable
         MainUI.Instance.ShowKeypad(1234, 
                         () => 
                         {
-                            print("Safe open");
+                            // Correct Code Entred
                             safeDoor.Unlock();
                             safeDoor.OnInteract(interactor);
                             SetLayerRecursively(Constants.defaultLayer);
@@ -42,11 +46,10 @@ public class SafeInteractable : Interactable
                         }, 
                         () =>
                         {
-                            print("Wrong code");
+                            // Incorrect Code Entred
                         });
 
         MainUI.Instance.ShowText("Enter safe code...");
-        GetComponent<Collider>().enabled = false;
     }
 
     public override void OnUpdate()
