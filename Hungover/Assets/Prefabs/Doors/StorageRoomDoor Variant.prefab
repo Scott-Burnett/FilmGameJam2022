@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4154952565602292771
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.011
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.885
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.532
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.677438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.677438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.20267661
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20267661
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 33.312
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 919132149155446097, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_Name
+      value: StorageRoomDoor Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8cca471e19e94c548924c63e809606db,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cca471e19e94c548924c63e809606db, type: 3}
+--- !u!1 &3848381449193367922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8cca471e19e94c548924c63e809606db,
+    type: 3}
+  m_PrefabInstance: {fileID: 4154952565602292771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6214314752227364859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1828330973
+      Data2: 1317238172
+      Data3: -55275622
+      Data4: 625314545
+    Path: event:/SFX/Interaction Sounds/Door Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-3767752752012764257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1535409820
+      Data2: 1074145234
+      Data3: 229119415
+      Data4: -1469564197
+    Path: event:/SFX/Interaction Sounds/Door Close
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-3728173107398092994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f30ae430bee80449a3ea470b51b542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEmitter: {fileID: -6214314752227364859}
+  closeEmitter: {fileID: -3767752752012764257}
+  lockedEventEmitter: {fileID: 2951943428103277500}
+  unlockEventEmitter: {fileID: 5197315562281190361}
+  isLocked: 1
+  isOpen: 0
+  key: {fileID: 0}
+  rotationAxis: {fileID: 0}
+  openAngle: 81.56
+  openDuration: 0.5
+--- !u!114 &2951943428103277500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -867506428
+      Data2: 1121515923
+      Data3: 971954352
+      Data4: 1506842563
+    Path: event:/SFX/Interaction Sounds/Door Locked
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5197315562281190361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 970410877
+      Data2: 1334715899
+      Data3: -1354286193
+      Data4: 1855526141
+    Path: event:/SFX/Interaction Sounds/Key Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!65 &1438632719899517992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848381449193367922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0022604635, y: 0.00959056, z: 0.019857716}
+  m_Center: {x: -0.00008402547, y: 0.0047252183, z: 0.009990107}
