@@ -5,7 +5,7 @@ namespace Hungover.Interactables.Barricades
         #region Barricade Methods
 
         protected override bool ConditionsToUnlockAreMet(Interactor interactor) =>
-            interactor.curentInteractable is BreakerType;
+            interactor.currentInteractable is BreakerType;
 
         protected override void OnUnlock(Interactor interactor)
         {

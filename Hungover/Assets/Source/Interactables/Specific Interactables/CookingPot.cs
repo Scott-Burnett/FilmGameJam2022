@@ -12,12 +12,12 @@ public class CookingPot : Interactable
     bool plastic, chemical, gunpowder;
     public override void OnInteract(Interactor interactor)
     {
-        if (interactor.curentInteractable == null)
+        if (interactor.currentInteractable == null)
         {
             return;
         }
 
-        switch (interactor.curentInteractable.tag)
+        switch (interactor.currentInteractable.tag)
         {
             case Constants.plasticTag:
                 {
@@ -41,7 +41,7 @@ public class CookingPot : Interactable
     }
     void DropIntoPot(Interactor interactor )
     {
-        StartCoroutine(DropCoroutine(interactor.curentInteractable.gameObject));
+        StartCoroutine(DropCoroutine(interactor.currentInteractable.gameObject));
         interactor.EndInteraction();
     }
 
