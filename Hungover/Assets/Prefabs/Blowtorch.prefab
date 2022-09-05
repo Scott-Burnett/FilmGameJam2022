@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5079538524572512757}
   - component: {fileID: 5079538524572512756}
   - component: {fileID: 5079538524572512759}
+  - component: {fileID: 236192418429126970}
+  - component: {fileID: 3009220160929021458}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -125,6 +127,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63e00385d35c7549b429b80dd675736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useSound: {fileID: 3009220160929021458}
+--- !u!114 &236192418429126970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079538524572512753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2069366962
+      Data2: 1097163306
+      Data3: -1205150277
+      Data4: -243324361
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Blowtorch Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3009220160929021458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079538524572512753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 693243052
+      Data2: 1276536084
+      Data3: 1068778382
+      Data4: 106545270
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Blowtorch Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5079538524947710717
 GameObject:
   m_ObjectHideFlags: 0
