@@ -123,8 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &22390403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,7 +409,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4135dbd432c21c042b71696175fb1d38, type: 3}
->>>>>>> dev_0_1
 --- !u!1 &220922524
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,10 +420,7 @@ GameObject:
   - component: {fileID: 220922527}
   - component: {fileID: 220922526}
   - component: {fileID: 220922525}
-<<<<<<< HEAD
-=======
   - component: {fileID: 220922528}
->>>>>>> dev_0_1
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -499,8 +493,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!114 &220922528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1034,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac731296bea8bb64db0976028e263d59, type: 3}
->>>>>>> dev_0_1
 --- !u!1 &459494324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,11 +1047,7 @@ GameObject:
   - component: {fileID: 459494326}
   - component: {fileID: 459494325}
   m_Layer: 0
-<<<<<<< HEAD
-  m_Name: er
-=======
   m_Name: Plane
->>>>>>> dev_0_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,10 +1128,6 @@ Transform:
   m_LocalScale: {x: 3.7741, y: 3.7741, z: 3.7741}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &460269035
@@ -2439,7 +2422,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ba754a528b3084ba12448f50277643, type: 3}
->>>>>>> dev_0_1
 --- !u!1 &1356961089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,10 +2513,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
-=======
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1443522451
@@ -3765,4 +3743,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa61e6b500e1f4d47b3077a8420a575d, type: 3}
->>>>>>> dev_0_1
