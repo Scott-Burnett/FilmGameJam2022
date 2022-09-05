@@ -8,8 +8,8 @@ namespace Hungover.Interactables
     {
         #region Private Members
 
-        private Interactor interactor;
-        private Rigidbody thisRigidBody;
+        protected Interactor interactor;
+        protected Rigidbody thisRigidBody;
 
         #endregion
 
@@ -54,6 +54,9 @@ namespace Hungover.Interactables
             transform.parent = null;
             thisRigidBody.isKinematic = false;
         }
+
+        public override Sprite Indicator() => 
+            MainUI.Instance.handCrosshairSprite;
 
         #endregion
 

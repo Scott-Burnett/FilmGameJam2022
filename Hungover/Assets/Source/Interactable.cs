@@ -8,13 +8,14 @@ namespace Hungover
     {
         #region Private Members
 
-        private StudioEventEmitter audioEmitter;
+        private StudioEventEmitter interactAudioEmitter;
 
         #endregion
 
         #region Abstract Methods
         
         public abstract void OnInteract(Interactor interactor);
+        public abstract Sprite Indicator();
 
         #endregion
 
@@ -41,7 +42,7 @@ namespace Hungover
 
         private void Start()
         {
-            TryGetComponent<StudioEventEmitter>(out audioEmitter);
+            TryGetComponent<StudioEventEmitter>(out interactAudioEmitter);
 
             SetLayerRecursively(Constants.interactableLayer);
             Initialise();
@@ -53,20 +54,28 @@ namespace Hungover
 
         public void ShowInteractableIndicator()
         {
-
+            MainUI.Instance.ShowInteractableIndicator(Indicator());
         }
 
         public void HideInteractableIndicator()
         {
-            
+            MainUI.Instance.ShowDefaultCrosshair();
         }
 
         public void PlayInteractableSound()
         {
-            audioEmitter?.Play();
+            interactAudioEmitter?.Play();
         }
 
         #endregion
 
+        #region Protected Methods
+
+        protected void DisableInteractSound()
+        {
+            interactAudioEmitter = null;
+        }
+
+        #endregion
     }
 }

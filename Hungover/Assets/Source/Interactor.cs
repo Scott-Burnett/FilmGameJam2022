@@ -32,7 +32,7 @@ namespace Hungover
         }
 
         public Transform CarryPoint => carryPoint;
-        public Interactable curentInteractable { get; private set; }
+        public Interactable currentInteractable { get; set; }
         public Interactable candidate { get; private set; }
 
         #endregion    
@@ -57,11 +57,11 @@ namespace Hungover
                     ScanForInteractable();
                     break;
                 case State.Carrying:
+                    currentInteractable.OnUpdate();
                     ScanForInteractable();
-                    curentInteractable.OnUpdate();
                     break;
                 case State.Inspecting:
-                    curentInteractable.OnUpdate();
+                    currentInteractable.OnUpdate();
                     break;
             }
         }
@@ -78,7 +78,7 @@ namespace Hungover
         public void EndInteraction()
         {
             state = State.NotInteracting;
-            curentInteractable = null;
+            currentInteractable = null;
         }
 
         #endregion
@@ -98,14 +98,7 @@ namespace Hungover
             {
                 if (candidate != newCandidate)
                 {
-                    candidate?.HideInteractableIndicator();
                     candidate = newCandidate;
-
-                    if (candidate == null)
-                    {
-                        return;
-                    }
-
                     candidate.ShowInteractableIndicator();
                 }
                 
@@ -116,10 +109,15 @@ namespace Hungover
 
                     if (candidate.CausesDisposeCurrentInteractable())
                     {
-                        curentInteractable?.OnDispose();
-                        curentInteractable = candidate;
+                        currentInteractable?.OnDispose();
+                        currentInteractable = candidate;
                     }
                 }
+            }
+            else
+            {
+                MainUI.Instance.ShowDefaultCrosshair();
+                candidate = null;
             }
         }
 

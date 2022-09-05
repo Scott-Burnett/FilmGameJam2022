@@ -38,7 +38,8 @@ namespace Hungover.Interactables
         {
             if (InteractorIsHoldingKey(interactor))
             {
-                Destroy(interactor.curentInteractable.gameObject);
+                Destroy(interactor.currentInteractable.gameObject);
+                interactor.EndInteraction();
             }
         }
 
@@ -67,6 +68,7 @@ namespace Hungover.Interactables
             {
                 unlockId = key.id;
             }
+            DisableInteractSound();
         }
 
         public override void OnUpdate(){}
@@ -92,7 +94,7 @@ namespace Hungover.Interactables
         }
 
         private bool InteractorIsHoldingKey(Interactor interactor) =>
-            interactor.curentInteractable is Key keyInHand &&
+            interactor.currentInteractable is Key keyInHand &&
             keyInHand.id == unlockId;
 
         #endregion
