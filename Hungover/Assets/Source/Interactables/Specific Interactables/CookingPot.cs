@@ -2,6 +2,7 @@ using Hungover;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class CookingPot : Interactable
 {
@@ -10,6 +11,11 @@ public class CookingPot : Interactable
     [SerializeField] Transform dropPoint;
     [SerializeField] Transform cookPoint;
     bool plastic, chemical, gunpowder;
+
+    [Header("Sound")]
+    [SerializeField] StudioEventEmitter defaultInteract;
+    [SerializeField] StudioEventEmitter ingredientAdded;
+    [SerializeField] StudioEventEmitter successfulCook;
     public override void OnInteract(Interactor interactor)
     {
         if (interactor.currentInteractable == null)
@@ -37,6 +43,9 @@ public class CookingPot : Interactable
                     DropIntoPot(interactor);
                     break;
                 }
+            default:
+                defaultInteract.Play();
+                break;
         }
     }
     void DropIntoPot(Interactor interactor )
@@ -71,7 +80,7 @@ public class CookingPot : Interactable
         yield return new WaitForSeconds(0.25f);
 
         Destroy(item);
-
+        ingredientAdded.Play();
         CheckIngredients();
 
         yield return null;
@@ -82,6 +91,7 @@ public class CookingPot : Interactable
         if (plastic && chemical && gunpowder)
         {
             var c4 = Instantiate(c4Prefab, cookPoint.position, Quaternion.identity);
+            successfulCook.Play();
             c4.GetComponent<Rigidbody>().AddForce(cookPoint.up + cookPoint.forward * 2, ForceMode.Impulse);
         }
     }
