@@ -64,7 +64,7 @@ public class ExplosiveDoor : Barricade
     void Explode(Vector3 position)
     {
         Instantiate(explosionEffect, position, Quaternion.identity);
-        //brokenDoorPrefab?.SetActive(true);
+        brokenDoorPrefab?.SetActive(true);
         gameObject.SetActive(false);
     }
 
