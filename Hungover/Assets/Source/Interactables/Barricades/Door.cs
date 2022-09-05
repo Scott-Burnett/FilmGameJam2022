@@ -39,6 +39,7 @@ namespace Hungover.Interactables
             if (InteractorIsHoldingKey(interactor))
             {
                 Destroy(interactor.currentInteractable.gameObject);
+                interactor.EndInteraction();
             }
         }
 

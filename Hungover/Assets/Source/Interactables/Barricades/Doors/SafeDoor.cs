@@ -36,6 +36,7 @@ namespace Hungover.Interactables.Doors
             if (!codeHasBeenEntred)
             {
                 safe.OnInteract(interactor);
+                interactor.currentInteractable = safe;
             }
             else
             {

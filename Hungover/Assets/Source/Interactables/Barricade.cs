@@ -47,8 +47,8 @@ namespace Hungover.Interactables
 
         public override void OnInteract(Interactor interactor)
         {
-            if (ConditionsToUnlockAreMet(interactor) &&
-                isLocked)
+            if (isLocked &&
+                ConditionsToUnlockAreMet(interactor))
             {
                 isLocked = false;
                 unlockEventEmitter?.Play();

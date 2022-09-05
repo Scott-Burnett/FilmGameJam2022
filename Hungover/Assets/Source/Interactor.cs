@@ -32,7 +32,7 @@ namespace Hungover
         }
 
         public Transform CarryPoint => carryPoint;
-        public Interactable currentInteractable { get; private set; }
+        public Interactable currentInteractable { get; set; }
         public Interactable candidate { get; private set; }
 
         #endregion    
@@ -57,8 +57,8 @@ namespace Hungover
                     ScanForInteractable();
                     break;
                 case State.Carrying:
-                    ScanForInteractable();
                     currentInteractable.OnUpdate();
+                    ScanForInteractable();
                     break;
                 case State.Inspecting:
                     currentInteractable.OnUpdate();
@@ -107,8 +107,7 @@ namespace Hungover
                     candidate.OnInteract(this);
                     candidate.PlayInteractableSound();
 
-                    if (candidate.CausesDisposeCurrentInteractable() ||
-                        currentInteractable == null)
+                    if (candidate.CausesDisposeCurrentInteractable())
                     {
                         currentInteractable?.OnDispose();
                         currentInteractable = candidate;
