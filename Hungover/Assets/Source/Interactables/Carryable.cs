@@ -6,6 +6,14 @@ namespace Hungover.Interactables
     [RequireComponent(typeof(Rigidbody))]
     public abstract class Carryable : Interactable
     {
+        #region Editor Fields
+
+        [Header("Carryable")]
+
+        [SerializeField] private Quaternion carryingOffset = Quaternion.identity;
+
+        #endregion
+
         #region Private Members
 
         protected Interactor interactor;
@@ -69,17 +77,19 @@ namespace Hungover.Interactables
             Vector3 currentPosition = transform.position;
             Quaternion currentRotation = transform.rotation;
 
+            Quaternion targetRotation = interactor.CarryPoint.rotation * carryingOffset;
+
             while (timeElapsed < lerpTime)
             {
                 transform.position = Vector3.Lerp(currentPosition, interactor.CarryPoint.position, (timeElapsed / lerpTime));
-                transform.rotation = Quaternion.Lerp(currentRotation, interactor.CarryPoint.rotation, (timeElapsed / lerpTime));
+                transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, (timeElapsed / lerpTime));
                 timeElapsed += Time.deltaTime;
 
                 yield return null;
             }
 
             transform.position = interactor.CarryPoint.position;
-            transform.rotation = interactor.CarryPoint.rotation;
+            transform.rotation = targetRotation;
             
             transform.parent = interactor.CarryPoint;
             
