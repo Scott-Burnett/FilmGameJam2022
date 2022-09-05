@@ -2066,6 +2066,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 851510119271621595, guid: b33e9f859bb92cb49a0cdf13319d2583,
         type: 3}
+    - target: {fileID: 4935243841507009382, guid: 3947273ed11e4d54d9ea5a95a857df4f,
+        type: 3}
+      propertyPath: spawnOffset.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3947273ed11e4d54d9ea5a95a857df4f, type: 3}
 --- !u!1001 &1137043235
@@ -6524,6 +6529,7 @@ MonoBehaviour:
     type: 3}
   objectInside: {fileID: 0}
   breakThreshold: 3
+  spawnOffset: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &8445031941158250872
 PrefabInstance:
   m_ObjectHideFlags: 0

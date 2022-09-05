@@ -9,6 +9,7 @@ public class Bottle : Carryable
     [SerializeField] GameObject objectInside = null;
 
     [SerializeField] float breakThreshold = 2;
+    [SerializeField] private Vector3 spawnOffset = new Vector3(0.0f, 0.1f, 0.0f);
 
 
     private void OnCollisionEnter(Collision collision)
@@ -29,7 +30,7 @@ public class Bottle : Carryable
 
         if (objectInside != null)
         {
-            Instantiate(objectInside, transform.position, transform.rotation);
+            Instantiate(objectInside, transform.position + spawnOffset, transform.rotation);
         }
     }
 }
