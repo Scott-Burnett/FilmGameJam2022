@@ -5976,11 +5976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5555660177633028835, guid: 2e8d28b89506ed145bac984ede268e00,
-        type: 3}
-      propertyPath: openAngle
-      value: 87
-      objectReference: {fileID: 0}
     - target: {fileID: 6921498347709286385, guid: 2e8d28b89506ed145bac984ede268e00,
         type: 3}
       propertyPath: m_RootOrder
