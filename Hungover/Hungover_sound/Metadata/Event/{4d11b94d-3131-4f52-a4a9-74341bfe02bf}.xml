@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{4d11b94d-3131-4f52-a4a9-74341bfe02bf}">
 		<property name="name">
-			<value>Squaky Toy Interact</value>
+			<value>Squeaky Toy Interact</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
