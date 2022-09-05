@@ -15,6 +15,14 @@ public class MainUI : MonoBehaviour
     [SerializeField] Image inspectionFade;
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] SafeKeypad keypad;
+    [SerializeField] Image crosshair;
+
+    [Header("Crosshairs")]
+    [SerializeField] public Sprite crosshairSprite;
+    [SerializeField] public Sprite eyeglassCrosshairSprite;
+    [SerializeField] public Sprite handCrosshairSprite;
+    [SerializeField] public Sprite lockCrosshairSprite;
+    [SerializeField] public Sprite unlockCrosshairSprite;
 
     public void ShowText(string text)
     {
@@ -53,5 +61,25 @@ public class MainUI : MonoBehaviour
         }
         inspectionFade.color = targetColour;
         yield return null;
+    }
+
+    public void ShowDefaultCrosshair()
+    {
+        crosshair.sprite = crosshairSprite;
+    }
+
+    public void ShowInteractableIndicator(Sprite indicator)
+    {
+        crosshair.sprite = indicator;
+    }
+
+    public void HideCrosshair()
+    {
+        crosshair.enabled = false;
+    }
+
+    public void ShowCrosshair()
+    {
+        crosshair.enabled = true;
     }
 }

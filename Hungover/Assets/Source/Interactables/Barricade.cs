@@ -75,6 +75,9 @@ namespace Hungover.Interactables
             }
         }
 
+        public override Sprite Indicator() => 
+            isLocked ? MainUI.Instance.lockCrosshairSprite : MainUI.Instance.unlockCrosshairSprite;
+
         #endregion
     }
 }
