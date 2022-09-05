@@ -32,8 +32,6 @@ namespace Hungover.Interactables
         protected override void Initialise()
         {
             thisRigidBody = GetComponent<Rigidbody>();
-
-            // thisRigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         }
 
         public override void OnInteract(Interactor interactor)

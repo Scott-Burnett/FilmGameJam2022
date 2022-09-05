@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140756d0b36d04b45bd87cff389e4ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  carryingOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   id: 1
 --- !u!65 &3888794221703443827
 BoxCollider:
