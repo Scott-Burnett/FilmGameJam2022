@@ -23,6 +23,7 @@ public class Inspectable : Interactable
         this.interactor = null;
         MainUI.Instance.Fade(new Color(0, 0, 0, 0.75f), Color.clear, 0.75f);
         MainUI.Instance.HideText();
+        MainUI.Instance.ShowCrosshair();
         SetLayerRecursively(Constants.interactableLayer);
         LerpTo(startPosition, startRotation);
         transform.rotation = startRotation;
@@ -35,6 +36,7 @@ public class Inspectable : Interactable
         this.interactor.SetControlsEnabled(false);
         MainUI.Instance.Fade(Color.clear, new Color(0, 0, 0, 0.75f), 0.75f);
         MainUI.Instance.ShowText(description);
+        MainUI.Instance.HideCrosshair();
         SetLayerRecursively(Constants.inspectingLayer);
         LerpTo(interactor.InspectionPoint.position, Quaternion.identity);
     }
@@ -76,4 +78,7 @@ public class Inspectable : Interactable
         transform.position = destination;
         yield return null;
     }
+
+    public override Sprite Indicator() =>
+        MainUI.Instance.eyeglassCrosshairSprite;
 }

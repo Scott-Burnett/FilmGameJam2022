@@ -85,4 +85,7 @@ public class CookingPot : Interactable
             c4.GetComponent<Rigidbody>().AddForce(cookPoint.up + cookPoint.forward * 2, ForceMode.Impulse);
         }
     }
+
+    public override Sprite Indicator() => 
+        MainUI.Instance.handCrosshairSprite;
 }

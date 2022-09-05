@@ -55,6 +55,9 @@ namespace Hungover.Interactables
             thisRigidBody.isKinematic = false;
         }
 
+        public override Sprite Indicator() => 
+            MainUI.Instance.handCrosshairSprite;
+
         #endregion
 
         #region Private Methods

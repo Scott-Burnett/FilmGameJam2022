@@ -61,4 +61,7 @@ public class SafeInteractable : Interactable
             OnDispose();
         }
     }
+
+    public override Sprite Indicator() => 
+        MainUI.Instance.lockCrosshairSprite;
 }

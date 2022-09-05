@@ -98,13 +98,14 @@ namespace Hungover
             {
                 if (candidate != newCandidate)
                 {
-                    candidate?.HideInteractableIndicator();
+                    // candidate?.HideInteractableIndicator();
                     candidate = newCandidate;
 
-                    if (candidate == null)
-                    {
-                        return;
-                    }
+                    // if (candidate == null)
+                    // {
+                    //     MainUI.Instance.ShowDefaultCrosshair();
+                    //     return;
+                    // }
 
                     candidate.ShowInteractableIndicator();
                 }
@@ -121,6 +122,11 @@ namespace Hungover
                         currentInteractable = candidate;
                     }
                 }
+            }
+            else
+            {
+                MainUI.Instance.ShowDefaultCrosshair();
+                candidate = null;
             }
         }
 

@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5749066033110038977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4098116621683378507}
+  - component: {fileID: 4793616898529552139}
+  - component: {fileID: 3012873701260501320}
+  - component: {fileID: 7818509493501972433}
+  m_Layer: 7
+  m_Name: Steak
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4098116621683378507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749066033110038977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.49536, y: 0.49536, z: 0.49536}
+  m_Children:
+  - {fileID: 7929749184818328947}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4793616898529552139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749066033110038977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5333541, y: 0.3090051, z: 0.7871966}
+  m_Center: {x: -0.0044870437, y: 0.062817745, z: 0.0022784616}
+--- !u!114 &3012873701260501320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749066033110038977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e0047ad7e23974083441bfc63f4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "This steak is moerse well-done. Not my quite to my preference but
+    hey, I\u2019m not judging. I\u2019m not eating it either, though."
+--- !u!114 &7818509493501972433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749066033110038977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 588251594
+      Data2: 1291974519
+      Data3: 1916769445
+      Data4: -942696048
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Braai Meat Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1001 &7603933949604614808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4098116621683378507}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 138.50359
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 138.50359
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 138.50359
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006000019
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01434808
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0036515344
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3834093
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3932094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6721641
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.49656746
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 21.471
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 103.221
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -77.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79bea6f229770ed4797aa8db6efcb0f2, type: 2}
+    - target: {fileID: 919132149155446097, guid: e64ac460813361445979f5710d6a3b26,
+        type: 3}
+      propertyPath: m_Name
+      value: Steak
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e64ac460813361445979f5710d6a3b26, type: 3}
+--- !u!4 &7929749184818328947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e64ac460813361445979f5710d6a3b26,
+    type: 3}
+  m_PrefabInstance: {fileID: 7603933949604614808}
+  m_PrefabAsset: {fileID: 0}

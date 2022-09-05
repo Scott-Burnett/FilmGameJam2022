@@ -15,6 +15,7 @@ namespace Hungover
         #region Abstract Methods
         
         public abstract void OnInteract(Interactor interactor);
+        public abstract Sprite Indicator();
 
         #endregion
 
@@ -53,12 +54,12 @@ namespace Hungover
 
         public void ShowInteractableIndicator()
         {
-
+            MainUI.Instance.ShowInteractableIndicator(Indicator());
         }
 
         public void HideInteractableIndicator()
         {
-            
+            MainUI.Instance.ShowDefaultCrosshair();
         }
 
         public void PlayInteractableSound()
