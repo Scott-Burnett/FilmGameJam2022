@@ -98,15 +98,7 @@ namespace Hungover
             {
                 if (candidate != newCandidate)
                 {
-                    // candidate?.HideInteractableIndicator();
                     candidate = newCandidate;
-
-                    // if (candidate == null)
-                    // {
-                    //     MainUI.Instance.ShowDefaultCrosshair();
-                    //     return;
-                    // }
-
                     candidate.ShowInteractableIndicator();
                 }
                 
