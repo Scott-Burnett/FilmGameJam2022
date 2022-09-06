@@ -12,7 +12,7 @@ namespace Hungover.Interactables
         [Header("Carryable")]
 
         [SerializeField] private Quaternion carryingOffset = Quaternion.identity;
-        [SerializeField] private float dropSoundThreshold = 0.75f;
+        [SerializeField] private float dropSoundThreshold = 0.4f;
         [SerializeField] private StudioEventEmitter dropSound = null;
  
         #endregion

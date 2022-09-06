@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e441aa60a06b349a4c3a1db99794e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.4
+  dropSound: {fileID: 2198939329501437416}
 --- !u!1001 &6216888474163361343
 PrefabInstance:
   m_ObjectHideFlags: 0
