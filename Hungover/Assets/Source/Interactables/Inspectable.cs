@@ -38,7 +38,7 @@ public class Inspectable : Interactable
         MainUI.Instance.ShowText(description);
         MainUI.Instance.HideCrosshair();
         SetLayerRecursively(Constants.inspectingLayer);
-        LerpTo(interactor.InspectionPoint.position, Quaternion.identity);
+        LerpTo(interactor.InspectionPoint.position, startRotation);
     }
 
     public override void OnUpdate()
