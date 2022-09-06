@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.4
+  dropSound: {fileID: 0}
 --- !u!1 &7192014461062281977
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 1952481952888638119, guid: 82c5d761da5ffc64d87814131a6f3529,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.202
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 1952481952888638119, guid: 82c5d761da5ffc64d87814131a6f3529,
         type: 3}
@@ -235,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 1952481952888638119, guid: 82c5d761da5ffc64d87814131a6f3529,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.017
+      value: -9.806
       objectReference: {fileID: 0}
     - target: {fileID: 1952481952888638119, guid: 82c5d761da5ffc64d87814131a6f3529,
         type: 3}
