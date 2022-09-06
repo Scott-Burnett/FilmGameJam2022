@@ -1283,18 +1283,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630631646664267411, guid: 5439f0b3560299f4999a28e1d5c130a5,
         type: 3}
-      propertyPath: playerCapsule
-      value: 
-      objectReference: {fileID: 1641356099}
-    - target: {fileID: 2630631646664267411, guid: 5439f0b3560299f4999a28e1d5c130a5,
-        type: 3}
       propertyPath: standingCapsule
       value: 
       objectReference: {fileID: 1641356099}
     - target: {fileID: 2630631646664267411, guid: 5439f0b3560299f4999a28e1d5c130a5,
         type: 3}
-      propertyPath: crouchHeightReduction
-      value: 1.2
+      propertyPath: GroundLayers.m_Bits
+      value: 705
       objectReference: {fileID: 0}
     - target: {fileID: 2630631646664267412, guid: 5439f0b3560299f4999a28e1d5c130a5,
         type: 3}
