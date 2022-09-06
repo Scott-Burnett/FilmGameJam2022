@@ -407,6 +407,10 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 641
+  crouchHeightReduction: 1.2
+  cameraHightReductionFactor: 0.5
+  crouchDuration: 0.5
+  playerCapsule: {fileID: 1859409769042510464}
   CinemachineCameraTarget: {fileID: 7671876185565360079}
   TopClamp: 89
   BottomClamp: -65
