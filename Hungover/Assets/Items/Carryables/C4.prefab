@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 63773446133383281}
   - component: {fileID: 4828092717168846441}
   - component: {fileID: 1947445618656108485}
+  - component: {fileID: 1307691369603225542}
   m_Layer: 7
   m_Name: C4
   m_TagString: Untagged
@@ -76,6 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada393b9f72627c4eb3be8f1ef797ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.4
+  dropSound: {fileID: 1307691369603225542}
 --- !u!114 &1947445618656108485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +100,36 @@ MonoBehaviour:
       Data3: -663430489
       Data4: -228330467
     Path: event:/SFX/Interaction Sounds/C-4/C-4 Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1307691369603225542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109033251371076775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -443881816
+      Data2: 1176119415
+      Data3: 1082358972
+      Data4: 1889774948
+    Path: event:/SFX/Interaction Sounds/Drop Sounds/Generic Drop
   Event: 
   PlayEvent: 0
   StopEvent: 0

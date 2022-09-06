@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2518560427970500086}
   - component: {fileID: 6356828935255586708}
   - component: {fileID: 3888794221703443827}
+  - component: {fileID: -4038734199050642430}
   m_Layer: 0
   m_Name: StorageRoomKey
   m_TagString: Untagged
@@ -63,6 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  dropSoundThreshold: 0.75
+  dropSound: {fileID: 0}
   id: 1
 --- !u!65 &3888794221703443827
 BoxCollider:
@@ -77,6 +80,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06, y: 0.04, z: 0.24}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4038734199050642430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851510119271621595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2008162382
+      Data2: 1329034063
+      Data3: 1948073135
+      Data4: -2036144481
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Key Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &3289796560196491161
 PrefabInstance:
   m_ObjectHideFlags: 0

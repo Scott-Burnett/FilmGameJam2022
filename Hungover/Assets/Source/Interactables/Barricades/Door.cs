@@ -68,6 +68,11 @@ namespace Hungover.Interactables
             {
                 unlockId = key.id;
             }
+            else
+            {
+                isLocked = false;
+            }
+            
             DisableInteractSound();
         }
 

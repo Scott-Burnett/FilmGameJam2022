@@ -34,7 +34,6 @@ Transform:
   - {fileID: 1029085811190943531}
   - {fileID: 5338506762565881167}
   - {fileID: 5188363619830509494}
-  - {fileID: 5601281874368067470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,6 +123,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 400740127887777903}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &5887799364100754934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670718396873301310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0066886526, y: 0.00071998563, z: 0.0014080617}
+  m_Center: {x: -0.00025703112, y: 0.00011280072, z: -0.00019833536}
+--- !u!114 &2227233626644315762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670718396873301310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &3890702260789220774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,22 +181,9 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 2227233626644315762}
   isLocked: 1
   isOpen: 0
---- !u!65 &5887799364100754934
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670718396873301310}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0066886526, y: 0.00071998563, z: 0.0014080617}
-  m_Center: {x: -0.00025703112, y: 0.00011280072, z: -0.00019833536}
 --- !u!1001 &703323961744894144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +270,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 703323961744894144}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &696179058675056468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361375092210275729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008530084, y: 0.0007970427, z: 0.0012868954}
+  m_Center: {x: -0.00021232273, y: 0.000064573076, z: 0.0000032864625}
+--- !u!114 &4665727568829923888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361375092210275729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &7253252172726573309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,22 +328,9 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 4665727568829923888}
   isLocked: 1
   isOpen: 0
---- !u!65 &696179058675056468
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361375092210275729}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.008530084, y: 0.0007970427, z: 0.0012868954}
-  m_Center: {x: -0.00021232273, y: 0.000064573076, z: 0.0000032864625}
 --- !u!1001 &827928055738808627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -358,6 +417,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 827928055738808627}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &5280369536403641216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557335846947718242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0049535134, y: 0.00089739996, z: 0.0011793317}
+  m_Center: {x: -0.00029477925, y: -0.00016997303, z: -0.00006402746}
+--- !u!114 &3907736035431281724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557335846947718242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &6517112852744672856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,22 +475,9 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 3907736035431281724}
   isLocked: 1
   isOpen: 0
---- !u!65 &5280369536403641216
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557335846947718242}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0049535134, y: 0.00089739996, z: 0.0011793317}
-  m_Center: {x: -0.00029477925, y: -0.00016997303, z: -0.00006402746}
 --- !u!1001 &1909630096571712017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,6 +564,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1909630096571712017}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4136145938017844819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603624125782327104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008695938, y: 0.00073271943, z: 0.0016844546}
+  m_Center: {x: -0.00026922717, y: 0.00015713609, z: 0.00032192847}
 --- !u!114 &82377031679610861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,22 +592,39 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 7172711311502334407}
   isLocked: 1
   isOpen: 0
---- !u!65 &4136145938017844819
-BoxCollider:
+--- !u!114 &7172711311502334407
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603624125782327104}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.008695938, y: 0.00073271943, z: 0.0016844546}
-  m_Center: {x: -0.00026922717, y: 0.00015713609, z: 0.00032192847}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &3090844992878857009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,18 +699,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919d0f0e1e226f148b7ad9fec6d25dda, type: 3}
---- !u!1 &2748755931450570336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 919d0f0e1e226f148b7ad9fec6d25dda,
-    type: 3}
-  m_PrefabInstance: {fileID: 3090844992878857009}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3273653314741054682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 919d0f0e1e226f148b7ad9fec6d25dda,
     type: 3}
   m_PrefabInstance: {fileID: 3090844992878857009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2748755931450570336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 919d0f0e1e226f148b7ad9fec6d25dda,
+    type: 3}
+  m_PrefabInstance: {fileID: 3090844992878857009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7855209138112807127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748755931450570336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008530084, y: 0.0007970427, z: 0.0012868954}
+  m_Center: {x: -0.00021232273, y: 0.000064573076, z: 0.0000032864625}
+--- !u!114 &6860760038857986839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748755931450570336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &8933573138704862983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,139 +769,9 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 6860760038857986839}
   isLocked: 1
   isOpen: 0
---- !u!65 &7855209138112807127
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2748755931450570336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.008530084, y: 0.0007970427, z: 0.0012868954}
-  m_Center: {x: -0.00021232273, y: 0.000064573076, z: 0.0000032864625}
---- !u!1001 &5346187605999849573
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5113006333399599144}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 212
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.592
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.22
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.789
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6225363
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.3354765
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.3355936
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.6223191
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -56.656
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 89.964
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 1499a8ed97ac24e47b65e7128a829522,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1499a8ed97ac24e47b65e7128a829522, type: 3}
---- !u!1 &5111603841451339060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1499a8ed97ac24e47b65e7128a829522,
-    type: 3}
-  m_PrefabInstance: {fileID: 5346187605999849573}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5601281874368067470 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1499a8ed97ac24e47b65e7128a829522,
-    type: 3}
-  m_PrefabInstance: {fileID: 5346187605999849573}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &794332945851849493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5111603841451339060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d096ebbd5d1061346bca5bc908120fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openEmitter: {fileID: 0}
-  closeEmitter: {fileID: 0}
-  lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
-  isLocked: 1
-  isOpen: 0
---- !u!65 &2788289832446161963
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5111603841451339060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0066886526, y: 0.00071998563, z: 0.0014080617}
-  m_Center: {x: -0.00025703112, y: 0.00011280072, z: -0.00019833536}
 --- !u!1001 &5592510729652529828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -826,6 +858,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5592510729652529828}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &6294298173681737143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710201372148160501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008695938, y: 0.00073271943, z: 0.0016844546}
+  m_Center: {x: -0.00026922717, y: 0.00015713609, z: 0.00032192847}
+--- !u!114 &6801928249051383099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710201372148160501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &8448449783968491387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,22 +916,9 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 6801928249051383099}
   isLocked: 1
   isOpen: 0
---- !u!65 &6294298173681737143
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710201372148160501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.008695938, y: 0.00073271943, z: 0.0016844546}
-  m_Center: {x: -0.00026922717, y: 0.00015713609, z: 0.00032192847}
 --- !u!1001 &5731530108946335837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,6 +1005,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5731530108946335837}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &8667747046485356952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848993155757831436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0049535134, y: 0.00089739996, z: 0.0011793317}
+  m_Center: {x: -0.00029477925, y: -0.00016997303, z: -0.00006402746}
+--- !u!114 &2352316622168654105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848993155757831436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1442755074
+      Data2: 1080910552
+      Data3: 2111295904
+      Data4: 1746066624
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Crowbar Use
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &2481098105533799325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,19 +1063,6 @@ MonoBehaviour:
   openEmitter: {fileID: 0}
   closeEmitter: {fileID: 0}
   lockedEventEmitter: {fileID: 0}
-  unlockEventEmitter: {fileID: 0}
+  unlockEventEmitter: {fileID: 2352316622168654105}
   isLocked: 1
   isOpen: 0
---- !u!65 &8667747046485356952
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848993155757831436}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0049535134, y: 0.00089739996, z: 0.0011793317}
-  m_Center: {x: -0.00029477925, y: -0.00016997303, z: -0.00006402746}

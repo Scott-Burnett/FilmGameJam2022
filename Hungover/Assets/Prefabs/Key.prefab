@@ -130,11 +130,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 399109561
-      Data2: 1304119489
-      Data3: 325652655
-      Data4: -1281210865
-    Path: event:/Interface/Button Press
+      Data1: -2008162382
+      Data2: 1329034063
+      Data3: 1948073135
+      Data4: -2036144481
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Key Interact
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140756d0b36d04b45bd87cff389e4ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.75
+  dropSound: {fileID: 0}
   id: 7
 --- !u!1 &2347671755806009644
 GameObject:

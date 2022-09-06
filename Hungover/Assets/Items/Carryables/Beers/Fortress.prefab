@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5645370120626379032}
   - component: {fileID: 6119657330353492425}
   - component: {fileID: 4063282448435788730}
+  - component: {fileID: 2849384174038858787}
   m_Layer: 0
   m_Name: Fortress
   m_TagString: Untagged
@@ -77,10 +78,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b223e6117bee9194b8496a6dbf598cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.4
+  dropSound: {fileID: 2849384174038858787}
   shatterEffect: {fileID: 2213896914883973919, guid: c9a19c2ef096ac04894500d61e981059,
     type: 3}
   objectInside: {fileID: 0}
   breakThreshold: 3
+  spawnOffset: {x: 0, y: 0.1, z: 0}
 --- !u!114 &4063282448435788730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +106,36 @@ MonoBehaviour:
       Data3: 1350784695
       Data4: 874898238
     Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Bottle Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2849384174038858787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349770357890499480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 239691851
+      Data2: 1341455602
+      Data3: -1820584025
+      Data4: 1677733460
+    Path: event:/SFX/Interaction Sounds/Drop Sounds/Glass Drop
   Event: 
   PlayEvent: 0
   StopEvent: 0
