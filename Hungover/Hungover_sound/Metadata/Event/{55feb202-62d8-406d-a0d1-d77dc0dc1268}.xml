@@ -62,7 +62,11 @@
 			<destination>{c057a17f-4b4e-4147-ab24-084edb5ef898}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{c82539c2-8d2c-46de-9157-846128a359d0}" />
+	<object class="EventAutomatableProperties" id="{c82539c2-8d2c-46de-9157-846128a359d0}">
+		<property name="maxVoices">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{c2fe7280-33f6-49b3-92d4-655f2992a4c1}" />
 	<object class="GroupTrack" id="{aa5f5f48-2dc3-4903-bec9-88853786ad6c}">
 		<relationship name="mixerGroup">
@@ -127,6 +131,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{9fa9802a-4776-4a86-ba27-47528ee98cfb}" />
 	<object class="SingleSound" id="{635db950-0086-497d-a8e4-50c7a0331642}">
+		<relationship name="modulators">
+			<destination>{596fd5d8-fc5e-464b-bfae-ee0a5b91518e}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{8930e1c8-8798-4473-a7d8-fb0798e5a4b8}</destination>
 		</relationship>
@@ -145,5 +152,13 @@
 	</object>
 	<object class="MixerBusFader" id="{96685ee8-287b-49bb-a567-74af274c43da}" />
 	<object class="SpatialiserEffect" id="{710d941f-ee8a-47cf-9f55-dc7cea153d0a}" />
+	<object class="RandomizerModulator" id="{596fd5d8-fc5e-464b-bfae-ee0a5b91518e}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1adac897-ae01-41bf-ac56-602faec5c2fa}" />
 </objects>

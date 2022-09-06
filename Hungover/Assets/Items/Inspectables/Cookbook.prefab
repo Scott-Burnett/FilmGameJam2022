@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e0047ad7e23974083441bfc63f4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "The Anarchists Cookbook! This ou is dodgy. The bookmarked page says
-    \u201CSimply mix some bathroom cleaning fluid with a bit of gunpowder and a plastic
-    toy, mix them in a pot and you\u2019ve got yourself an easy homemade C-4!\u201D  
-    Hmm\u2026 Ons gaan nou braai. "
+  description: "The Anarchist\u2019s Cookbook? Wouldn\u2019t have pegged him as that
+    kind of guy. The bookmarked page says \u201CSimply mix some bathroom cleaning
+    fluid with a bit of gunpowder and a plastic toy, mix them in a pot and you\u2019ve
+    got yourself an easy homemade C-4!\u201D"
 --- !u!114 &4814917171690291029
 MonoBehaviour:
   m_ObjectHideFlags: 0
