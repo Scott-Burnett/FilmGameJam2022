@@ -15,7 +15,8 @@ namespace Hungover
 
         private const float interactionRange = 2.0f;
         private const int interactionLayerMask = Constants.interactableLayerMask |
-                                                 Constants.doorLayerMask;
+                                                 Constants.doorLayerMask |
+                                                 Constants.defaultLayerMask;
 
         #endregion    
 
@@ -86,7 +87,7 @@ namespace Hungover
         #region Private Methods
 
         private bool CameraIsLookingAtObject() =>
-            Physics.Raycast(transform.position, transform.forward, out hit, interactionRange, interactionLayerMask);
+            Physics.Raycast(transform.position, transform.forward, out hit, interactionRange, interactionLayerMask, QueryTriggerInteraction.Ignore);
 
         private bool ObjectIsInteractable(out Interactable interactableComponent) =>
             hit.collider.gameObject.TryGetComponent<Interactable>(out interactableComponent);
