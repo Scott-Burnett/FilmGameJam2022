@@ -616,15 +616,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91068de309950574ca34331709a176b7, type: 3}
---- !u!4 &5716409908207950798 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91068de309950574ca34331709a176b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 5250772733356112933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4908664292899963252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91068de309950574ca34331709a176b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5250772733356112933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5716409908207950798 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91068de309950574ca34331709a176b7,
     type: 3}
   m_PrefabInstance: {fileID: 5250772733356112933}
   m_PrefabAsset: {fileID: 0}
@@ -748,9 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f30ae430bee80449a3ea470b51b542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openEmitter: {fileID: 0}
-  closeEmitter: {fileID: 0}
-  lockedEventEmitter: {fileID: 0}
+  openEmitter: {fileID: 7652982227868152058}
+  closeEmitter: {fileID: 5458807307267005539}
+  lockedEventEmitter: {fileID: 7211503923215358454}
   unlockEventEmitter: {fileID: 0}
   isLocked: 1
   isOpen: 0
@@ -758,6 +758,96 @@ MonoBehaviour:
   rotationAxis: {fileID: 5250772732655852937}
   openAngle: 87
   openDuration: 0.5
+--- !u!114 &5458807307267005539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664293121471827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1535409820
+      Data2: 1074145234
+      Data3: 229119415
+      Data4: -1469564197
+    Path: event:/SFX/Interaction Sounds/Doors/Door Close
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7211503923215358454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664293121471827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -867506428
+      Data2: 1121515923
+      Data3: 971954352
+      Data4: 1506842563
+    Path: event:/SFX/Interaction Sounds/Doors/Door Locked
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7652982227868152058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664293121471827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1828330973
+      Data2: 1317238172
+      Data3: -55275622
+      Data4: 625314545
+    Path: event:/SFX/Interaction Sounds/Doors/Door Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &5250772733783713657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1026,15 +1116,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91068de309950574ca34331709a176b7, type: 3}
---- !u!4 &5716409907462680845 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91068de309950574ca34331709a176b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 5250772734067824358}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4908664292672695223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91068de309950574ca34331709a176b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5250772734067824358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5716409907462680845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91068de309950574ca34331709a176b7,
     type: 3}
   m_PrefabInstance: {fileID: 5250772734067824358}
   m_PrefabAsset: {fileID: 0}
@@ -1221,6 +1311,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0030461047, y: 0.00036346214, z: 0.0062572006}
   m_Center: {x: 0.0013777015, y: -0.00018173037, z: 3.249592e-11}
+--- !u!114 &3235139758904020019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664292090974582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1828330973
+      Data2: 1317238172
+      Data3: -55275622
+      Data4: 625314545
+    Path: event:/SFX/Interaction Sounds/Doors/Door Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4503676735796737520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664292090974582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1535409820
+      Data2: 1074145234
+      Data3: 229119415
+      Data4: -1469564197
+    Path: event:/SFX/Interaction Sounds/Doors/Door Close
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &5250772734064908290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,9 +1383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f30ae430bee80449a3ea470b51b542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openEmitter: {fileID: 0}
-  closeEmitter: {fileID: 0}
-  lockedEventEmitter: {fileID: 0}
+  openEmitter: {fileID: 3235139758904020019}
+  closeEmitter: {fileID: 4503676735796737520}
+  lockedEventEmitter: {fileID: 5425538908543848017}
   unlockEventEmitter: {fileID: 0}
   isLocked: 1
   isOpen: 0
@@ -1243,6 +1393,36 @@ MonoBehaviour:
   rotationAxis: {fileID: 5250772732633018126}
   openAngle: -87
   openDuration: 0.5
+--- !u!114 &5425538908543848017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908664292090974582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -867506428
+      Data2: 1121515923
+      Data3: 971954352
+      Data4: 1506842563
+    Path: event:/SFX/Interaction Sounds/Doors/Door Locked
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &5525624631688949461
 PrefabInstance:
   m_ObjectHideFlags: 0
