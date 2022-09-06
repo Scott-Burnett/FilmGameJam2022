@@ -14,10 +14,6 @@ namespace StarterAssets
 	public class FirstPersonController : MonoBehaviour
 	{
 		[SerializeField] Animator characterAnimator;
-		[SerializeField] FMODUnity.StudioGlobalParameterTrigger crouchTrigger;
-		[SerializeField] FMODUnity.StudioGlobalParameterTrigger standTrigger;
-		[SerializeField] CapsuleCollider standingCapsule = null;
-		// [SerializeField] CapsuleCollider crouchingCapsule = null;
 		bool crouched = false;
 		bool walking = false;
 
@@ -54,6 +50,22 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
+		[Space(10)]
+		[Header("Crouching")]
+
+		[SerializeField]
+		private float crouchHeightReduction = 0.75f;
+		[SerializeField, Range(0.0f, 1.0f)]
+		private float cameraHightReductionFactor = 0.5f;
+		[SerializeField]
+		private float crouchDuration = 0.5f;
+		[SerializeField]
+		private CapsuleCollider playerCapsule = null;
+		[SerializeField] 
+		private FMODUnity.StudioGlobalParameterTrigger crouchTrigger;
+		[SerializeField] 
+		private FMODUnity.StudioGlobalParameterTrigger standTrigger;
+
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
 		public GameObject CinemachineCameraTarget;
@@ -84,6 +96,22 @@ namespace StarterAssets
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
+
+		// private bool crouching;
+		private bool bumpingHead;
+		private Coroutine currentCrouchCoroutine = null;
+		private float initialCapsuleHeight;
+		private float crouchingCapsuleHeight;
+		private float initialControllerHeight;
+		private float crouchingControllerHeight;
+		private Vector3 initialCapsuleCentre;
+		private Vector3 crouchingCapsuleCentre;
+		private Vector3 initialCameraLocalPosition;
+		private Vector3 crouchingCameraLocalPosition;
+		private Vector3 initialAnimatorLocalPosition;
+		private Vector3 crouchingAnimatorLocalPosition;
+		private const int standUpCheckLayerMask = Constants.everythingLayerMask ^
+												  Constants.characterLayerMask;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -119,6 +147,29 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			// Crouch Stuff
+			initialCapsuleHeight = playerCapsule.height;
+			crouchingCapsuleHeight = initialCapsuleHeight - crouchHeightReduction;
+
+			initialControllerHeight = _controller.height;
+			crouchingControllerHeight = initialControllerHeight - crouchHeightReduction;
+
+			initialCapsuleCentre = playerCapsule.transform.localPosition;
+			crouchingCapsuleCentre = new Vector3(initialCapsuleCentre.x,
+												 initialCapsuleCentre.y - crouchHeightReduction * 0.5f, 
+												 initialCapsuleCentre.z);
+
+			initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
+			crouchingCameraLocalPosition = new Vector3(initialCameraLocalPosition.x,
+													   initialCameraLocalPosition.y - crouchHeightReduction * cameraHightReductionFactor,
+													   initialCameraLocalPosition.z);
+
+			initialAnimatorLocalPosition = characterAnimator.transform.localPosition;
+			crouchingAnimatorLocalPosition = new Vector3(initialAnimatorLocalPosition.x,
+														 initialAnimatorLocalPosition.y + crouchHeightReduction,
+														 initialAnimatorLocalPosition.z);
+			crouched = false;
 		}
 
 		private void Update()
@@ -126,59 +177,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-			if (Input.GetKeyDown(Constants.crouchKey))
-			{
-				ToggleCrouch();
-			}
-		}
-
-		void ToggleCrouch()
-		{
-			crouched = !crouched;
-			if (crouched)
-			{
-				MoveSpeed = 0.5f;
-				crouchTrigger.TriggerParameters();
-				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
-				// crouchingCapsule.enabled = false;
-				// standingCapsule.enabled = false;
-				StartCoroutine(CrouchCoroutine(0.5f, 1.0f, MoveSpeed));
-				characterAnimator.transform.localPosition += characterAnimator.transform.up * 0.6f;
-				
-			}
-			else
-			{
-				MoveSpeed = 2;
-				standTrigger.TriggerParameters();
-				characterAnimator.CrossFade("Idle", 0.5f, 0);
-				// crouchingCapsule.enabled = true;
-				// standingCapsule.enabled = true;
-				
-				
-				StartCoroutine(CrouchCoroutine(1.7f, 1.0f, MoveSpeed));
-				characterAnimator.transform.localPosition -= characterAnimator.transform.up * 0.6f;
-			}
-		}
-
-		IEnumerator CrouchCoroutine(float targetHeight, float transitionTime, float newSpeed)
-		{
-			MoveSpeed = newSpeed;
-
-			float timeElapsed = 0;
-
-			float currentHeight = _controller.height;
-
-			while (timeElapsed < transitionTime)
-			{
-				_controller.height = Mathf.Lerp(currentHeight, targetHeight, (timeElapsed / transitionTime));
-				timeElapsed += Time.deltaTime;
-
-				yield return null;
-			}
-
-			_controller.height = targetHeight;
-
-			yield return null;
+			Crouch();
 		}
 
 		private void LateUpdate()
@@ -336,6 +335,73 @@ namespace StarterAssets
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+		}
+
+		private void Crouch()
+		{
+			if (Input.GetKeyDown(Constants.crouchKey))
+			{
+				if (currentCrouchCoroutine != null)
+				{
+					StopCoroutine(currentCrouchCoroutine);
+				}
+
+				crouched = !crouched;
+
+				if (crouched)
+				{
+					MoveSpeed = 0.5f;
+					crouchTrigger.TriggerParameters();
+					characterAnimator.CrossFadeInFixedTime("Crawl Idle", crouchDuration, 0);
+					currentCrouchCoroutine = StartCoroutine(LerpCrouchingstate(crouchingCapsuleHeight, crouchingControllerHeight, crouchingCapsuleCentre, crouchingCameraLocalPosition, crouchingAnimatorLocalPosition));
+				}
+				else
+				{
+					MoveSpeed = 2;
+					standTrigger.TriggerParameters();
+					characterAnimator.CrossFadeInFixedTime("Idle", crouchDuration, 0);
+					currentCrouchCoroutine = StartCoroutine(LerpCrouchingstate(initialCapsuleHeight, initialControllerHeight, initialCapsuleCentre, initialCameraLocalPosition, initialAnimatorLocalPosition));
+				}
+
+			}
+		}
+
+		private IEnumerator LerpCrouchingstate(float targetCapsuleHeight, 
+											   float targetControllerHeight,
+											   Vector3 targetCapsuleCentre,
+											   Vector3 targetCameraLocalPosition,
+											   Vector3 targetAnimatorLocalPosition)
+		{
+			float capsuleHeightChange = targetCapsuleHeight - playerCapsule.height;
+			float crouchRate = capsuleHeightChange / crouchDuration;
+
+			for (float elapsedTime = 0.0f; elapsedTime < crouchDuration; elapsedTime += Time.deltaTime)
+			{
+				float distanceThisFrame = crouchRate * Time.deltaTime;
+
+				Vector3 headCheckPosition = playerCapsule.transform.position + playerCapsule.transform.up * distanceThisFrame;
+				bumpingHead = Physics.CheckSphere(headCheckPosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+				if (bumpingHead)
+				{
+					yield break;
+				}
+
+				playerCapsule.height += distanceThisFrame;
+				_controller.height += distanceThisFrame;
+				playerCapsule.transform.localPosition += new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				// _controller.center -= new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				// CinemachineCameraTarget.transform.localPosition += new Vector3(0.0f, distanceThisFrame * cameraHightReductionFactor, 0.0f);
+				characterAnimator.transform.localPosition -= new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+
+				yield return null;
+			}
+
+			playerCapsule.height = targetCapsuleHeight;
+			_controller.height = targetControllerHeight;
+			playerCapsule.transform.localPosition = targetCapsuleCentre;
+			// CinemachineCameraTarget.transform.localPosition = targetCameraLocalPosition;
+			characterAnimator.transform.localPosition = targetAnimatorLocalPosition;
+			yield return null;
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
