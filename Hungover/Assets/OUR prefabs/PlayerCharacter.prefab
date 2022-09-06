@@ -140,7 +140,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1056
+    m_Bits: 33824
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -391,8 +391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAnimator: {fileID: 1859409769301945258}
-  crouchTrigger: {fileID: 3383252259357739649}
-  standTrigger: {fileID: 3383252260180849863}
   MoveSpeed: 2
   SprintSpeed: 2
   RotationSpeed: 1
@@ -411,6 +409,8 @@ MonoBehaviour:
   cameraHightReductionFactor: 0.5
   crouchDuration: 0.5
   playerCapsule: {fileID: 1859409769042510464}
+  crouchTrigger: {fileID: 3383252259357739649}
+  standTrigger: {fileID: 3383252260180849863}
   CinemachineCameraTarget: {fileID: 7671876185565360079}
   TopClamp: 89
   BottomClamp: -65
@@ -830,7 +830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344625084036935574}
   m_LocalRotation: {x: 0.09361907, y: 0.014651325, z: 0.017262395, w: 0.9953506}
-  m_LocalPosition: {x: 0.0028038025, y: 1.4787519, z: 0.006287575}
+  m_LocalPosition: {x: 0.0028034449, y: 1.4787519, z: 0.006287575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1859409768670155653}
@@ -2107,7 +2107,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0028038025
+      value: 0.0028034449
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}

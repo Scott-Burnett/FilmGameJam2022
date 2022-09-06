@@ -41,6 +41,8 @@ namespace Hungover.Interactables
         {
             this.interactor = interactor;
             this.interactor.state = Interactor.State.Carrying;
+            
+            SetLayerRecursively(Constants.carryingLayer);
 
             thisRigidBody.isKinematic = true;
 
@@ -64,6 +66,8 @@ namespace Hungover.Interactables
         {
             transform.parent = null;
             thisRigidBody.isKinematic = false;
+            
+            SetLayerRecursively(Constants.interactableLayer);
         }
 
         public override Sprite Indicator() => 
@@ -115,6 +119,7 @@ namespace Hungover.Interactables
         {
             transform.parent = null;
             thisRigidBody.isKinematic = false;
+            SetLayerRecursively(Constants.interactableLayer);
             interactor.EndInteraction();
         }
 

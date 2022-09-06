@@ -16,6 +16,8 @@ namespace Hungover
         public const int characterLayerMask = 1 << characterLayer;
         public const int everythingLayerMask = ~0;
         public const int inspectingLayer = 10;
+        public const int carryingLayer = 15;
+        public const int carryingLayerMask = 1 << carryingLayer;
 
         // ToDo: This shouldnt be a constant here
         public const KeyCode interactionKeyCode = KeyCode.Mouse0;
