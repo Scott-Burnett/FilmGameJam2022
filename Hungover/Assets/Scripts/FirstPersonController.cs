@@ -16,6 +16,8 @@ namespace StarterAssets
 		[SerializeField] Animator characterAnimator;
 		[SerializeField] FMODUnity.StudioGlobalParameterTrigger crouchTrigger;
 		[SerializeField] FMODUnity.StudioGlobalParameterTrigger standTrigger;
+		[SerializeField] CapsuleCollider standingCapsule = null;
+		// [SerializeField] CapsuleCollider crouchingCapsule = null;
 		bool crouched = false;
 		bool walking = false;
 
@@ -138,12 +140,23 @@ namespace StarterAssets
 				MoveSpeed = 0.5f;
 				crouchTrigger.TriggerParameters();
 				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+				// crouchingCapsule.enabled = false;
+				// standingCapsule.enabled = false;
+				StartCoroutine(CrouchCoroutine(0.5f, 1.0f, MoveSpeed));
+				characterAnimator.transform.localPosition += characterAnimator.transform.up * 0.6f;
+				
 			}
 			else
 			{
 				MoveSpeed = 2;
 				standTrigger.TriggerParameters();
 				characterAnimator.CrossFade("Idle", 0.5f, 0);
+				// crouchingCapsule.enabled = true;
+				// standingCapsule.enabled = true;
+				
+				
+				StartCoroutine(CrouchCoroutine(1.7f, 1.0f, MoveSpeed));
+				characterAnimator.transform.localPosition -= characterAnimator.transform.up * 0.6f;
 			}
 		}
 
