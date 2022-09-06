@@ -12,7 +12,7 @@ public class Bottle : Carryable
     [SerializeField] private Vector3 spawnOffset = new Vector3(0.0f, 0.1f, 0.0f);
 
 
-    private void OnCollisionEnter(Collision collision)
+    protected override void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("LevelBlockout"))
         {
@@ -20,6 +20,10 @@ public class Bottle : Carryable
             {
                 BreakBottle();
             }
+        }
+        else
+        {
+            base.OnCollisionEnter(collision);
         }
     }
 

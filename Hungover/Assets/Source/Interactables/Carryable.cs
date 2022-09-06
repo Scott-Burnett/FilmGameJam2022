@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ namespace Hungover.Interactables
         [Header("Carryable")]
 
         [SerializeField] private Quaternion carryingOffset = Quaternion.identity;
-
+        [SerializeField] private float dropSoundThreshold = 0.75f;
+        [SerializeField] private StudioEventEmitter dropSound = null;
+ 
         #endregion
 
         #region Private Members
@@ -65,6 +68,18 @@ namespace Hungover.Interactables
 
         public override Sprite Indicator() => 
             MainUI.Instance.handCrosshairSprite;
+
+        #endregion
+
+        #region Protected Methods
+
+        protected virtual void OnCollisionEnter(Collision collision)
+        {
+            if (collision.impulse.magnitude > dropSoundThreshold)
+            {
+                dropSound?.Play();
+            }
+        }
 
         #endregion
 
