@@ -444,15 +444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bb41d1f1c48974cb2afa5629b0eb80, type: 3}
---- !u!4 &7459266577316371784 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bb41d1f1c48974cb2afa5629b0eb80,
-    type: 3}
-  m_PrefabInstance: {fileID: 6921498346748099235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7840612757552662514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33bb41d1f1c48974cb2afa5629b0eb80,
+    type: 3}
+  m_PrefabInstance: {fileID: 6921498346748099235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7459266577316371784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bb41d1f1c48974cb2afa5629b0eb80,
     type: 3}
   m_PrefabInstance: {fileID: 6921498346748099235}
   m_PrefabAsset: {fileID: 0}
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openEmitter: {fileID: 923929928327589906}
   closeEmitter: {fileID: 4323156439864721699}
-  lockedEventEmitter: {fileID: 0}
+  lockedEventEmitter: {fileID: 8579372526686303902}
   unlockEventEmitter: {fileID: 0}
   isLocked: 1
   isOpen: 0
@@ -857,6 +857,36 @@ MonoBehaviour:
   - {fileID: 8856799463834184222}
   - {fileID: 1410424773540617566}
   - {fileID: 2094502487643024617}
+--- !u!114 &8579372526686303902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840612755750819150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1363054485
+      Data2: 1313427043
+      Data3: -552918345
+      Data4: -489524502
+    Path: event:/SFX/Interaction Sounds/Fridge/Fridge Locked
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &6921498348077641515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,6 +968,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6921498348077641515}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &4774653942690759594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840612755661116026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2821479816948557917, guid: 6758865b0eddf08429cea06b6f15e7c8, type: 3}
 --- !u!114 &2094502487643024617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,20 +1000,6 @@ MonoBehaviour:
   unlockEventEmitter: {fileID: 0}
   isLocked: 1
   isOpen: 0
---- !u!64 &4774653942690759594
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840612755661116026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2821479816948557917, guid: 6758865b0eddf08429cea06b6f15e7c8, type: 3}
 --- !u!1001 &6921498348186706173
 PrefabInstance:
   m_ObjectHideFlags: 0
