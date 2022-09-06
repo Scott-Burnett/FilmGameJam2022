@@ -31,6 +31,12 @@ namespace Hungover.Interactables.Doors
         protected override bool ConditionsToUnlockAreMet(Interactor interactor) =>
             codeHasBeenEntred;
 
+        protected override void Initialise()
+        {
+            base.Initialise();
+            isLocked = true;
+        }
+
         public override void OnInteract(Interactor interactor)
         {
             if (!codeHasBeenEntred)

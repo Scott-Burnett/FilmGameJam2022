@@ -18,6 +18,12 @@ namespace Hungover.Interactables.Barricades.Doors
             barricades.All(barricade => !barricade.isLocked) &&
             base.ConditionsToUnlockAreMet(interactor);
 
+        protected override void Initialise()
+        {
+            base.Initialise();
+            isLocked = barricades.Count > 0;
+        }
+
         #endregion
     }
 }

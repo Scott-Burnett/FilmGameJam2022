@@ -7,7 +7,7 @@ namespace Hungover.Interactables.Carryables
         protected override void Initialise()
         {
             base.Initialise();
-            DisableInteractSound();
+            // DisableInteractSound();
         }
 
         #endregion

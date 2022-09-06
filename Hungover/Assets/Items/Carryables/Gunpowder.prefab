@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7096375021282843231}
   - component: {fileID: 7931138308616693216}
   - component: {fileID: 665131619120270166}
+  - component: {fileID: 7835229532992876166}
   m_Layer: 0
   m_Name: Gunpowder
   m_TagString: Chemical
@@ -106,6 +107,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e441aa60a06b349a4c3a1db99794e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carryingOffset: {x: 0, y: 0, z: 0, w: 1}
+  dropSoundThreshold: 0.4
+  dropSound: {fileID: 7835229532992876166}
+--- !u!114 &7835229532992876166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064466982332090180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -443881816
+      Data2: 1176119415
+      Data3: 1082358972
+      Data4: 1889774948
+    Path: event:/SFX/Interaction Sounds/Drop Sounds/Generic Drop
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1763216163955122247
 PrefabInstance:
   m_ObjectHideFlags: 0
