@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{6f89b44e-5cc9-43b9-8af9-11b9fd31d6e9}">
+	<object class="AudioFile" id="{131e04ab-08c8-41d4-9987-e37c5d8dfca0}">
 		<property name="assetPath">
-			<value>C-4 Cook Feedback.wav</value>
+			<value>Safe Code Correct.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.4874791666666667</value>
+			<value>0.16</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{4ff0cbdd-f761-4ee5-854f-3a2f48cb0520}</destination>
