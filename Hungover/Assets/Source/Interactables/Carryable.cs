@@ -22,6 +22,8 @@ namespace Hungover.Interactables
 
         protected Interactor interactor;
         protected Rigidbody thisRigidBody;
+        private Vector3 previousPosition;
+        private float throwVelocityMultiplier = 2.0f;
 
         #endregion
 
@@ -36,6 +38,7 @@ namespace Hungover.Interactables
         protected override void Initialise()
         {
             thisRigidBody = GetComponent<Rigidbody>();
+            previousPosition = transform.position;
         }
 
         public override void OnInteract(Interactor interactor)
@@ -61,6 +64,8 @@ namespace Hungover.Interactables
             {
                 Drop();
             }
+
+            previousPosition = transform.position;
         }
 
         public override void OnDispose()
@@ -121,6 +126,7 @@ namespace Hungover.Interactables
         {
             transform.parent = null;
             thisRigidBody.isKinematic = false;
+            thisRigidBody.velocity = (transform.position - previousPosition) * throwVelocityMultiplier / Time.deltaTime;
             SetLayerRecursively(Constants.interactableLayer);
             interactor.EndInteraction();
         }
