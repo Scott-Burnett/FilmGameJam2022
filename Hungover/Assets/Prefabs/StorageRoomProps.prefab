@@ -402,6 +402,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottleContainingStorageRoomKey
       objectReference: {fileID: 0}
+    - target: {fileID: 934542805480352118, guid: 3947273ed11e4d54d9ea5a95a857df4f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -940448738916402430, guid: 2d413db165f70654aa15ce85f686cf1a,
+        type: 3}
     - target: {fileID: 2352250220483246554, guid: 3947273ed11e4d54d9ea5a95a857df4f,
         type: 3}
       propertyPath: m_RootOrder
