@@ -31,6 +31,7 @@ public class MainUI : MonoBehaviour
     // [SerializeField] private GameObject mainMenuVideoPlayerGameObejct;
     [SerializeField] private GameObject mainMenuGameObejct;
     [SerializeField] private StudioEventEmitter mainMenuTheme;
+    [SerializeField, Range(0.0f, 1.0f)] private float controlGainDelayFactor = 0.5f;
 
     [Header("Credits")]
     [SerializeField] private GameObject creditsGameObejct = null;
@@ -114,9 +115,32 @@ public class MainUI : MonoBehaviour
     {
         Color difference = targetColor - mainMenuImage.color;
         Color colorRate = difference / duration;
+
         for (float elapsedTime = 0.0f; elapsedTime < duration; elapsedTime += Time.deltaTime)
         {
             mainMenuImage.color += colorRate * Time.deltaTime;
+            yield return null;
+        }
+        mainMenuImage.color = targetColor;
+        yield return null;
+    }
+
+    IEnumerator FadeMainMenuImageAndEnableControlsAfterDelay(Color targetColor, float duration)
+    {
+        Color difference = targetColor - mainMenuImage.color;
+        Color colorRate = difference / duration;
+        float controlEnableTime = duration * controlGainDelayFactor;
+        bool controlsHaveBeenEnabled = false;
+
+        for (float elapsedTime = 0.0f; elapsedTime < duration; elapsedTime += Time.deltaTime)
+        {
+            mainMenuImage.color += colorRate * Time.deltaTime;
+            if (!controlsHaveBeenEnabled &&
+                elapsedTime > controlEnableTime)
+            {
+                interactor.SetControlsEnabled(true);
+            }
+
             yield return null;
         }
         mainMenuImage.color = targetColor;
@@ -153,13 +177,9 @@ public class MainUI : MonoBehaviour
 
     IEnumerator FadeOutMainMenuImageAndEnableControls()
     {
-        yield return FadeMainMenuImage(new Color(0, 0, 0, 0), 6.0f);
-        // Destroy(mainMenuImage.gameObject);
-        // mainMenuImage = null;
-        // Destroy(mainMenuVideoPlayerGameObejct);
-        // mainMenuVideoPlayerGameObejct = null;
+        yield return FadeMainMenuImageAndEnableControlsAfterDelay(new Color(0, 0, 0, 0), 6.0f);
+        // interactor.SetControlsEnabled(true);
         mainMenuGameObejct.SetActive(false);
-        interactor.SetControlsEnabled(true);
         mainMenuTheme.Stop();
         yield return null;
     }
@@ -170,9 +190,9 @@ public class MainUI : MonoBehaviour
         mainMenuGameObejct.SetActive(true);
         creditsTheme.Play();
         yield return FadeCoroutine(new Color(0, 0, 0, 0), new Color(255, 255, 255, 1.0f), 2.0f);
-        yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 6.0f);
+        yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 4.0f);
         creditsGameObejct.SetActive(true);
-        yield return FadeInCreditsTint(new Color(0, 0, 0, 0.6f), 2.0f);
+        yield return FadeInCreditsTint(new Color(0, 0, 0, 0.95f), 1.0f);
         yield return ScrollCreditsText(new Vector3(0.0f, -1080.0f, 0.0f), new Vector3(0.0f, 1080.0f, 0.0f), 20.0f);
     }
 

@@ -879,6 +879,7 @@ MonoBehaviour:
   mainMenuImage: {fileID: 4264239505120851923}
   mainMenuGameObejct: {fileID: 2849073811489999891}
   mainMenuTheme: {fileID: 7526858256496579252}
+  controlGainDelayFactor: 0.4
   creditsGameObejct: {fileID: 1057325269063888412}
   creditsTint: {fileID: 3887608916307183791}
   creditsText: {fileID: 3569076176820204976}
