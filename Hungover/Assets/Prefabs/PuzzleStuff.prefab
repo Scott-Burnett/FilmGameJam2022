@@ -1091,6 +1091,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge
       objectReference: {fileID: 0}
+    - target: {fileID: 8633277008517559215, guid: 2e8d28b89506ed145bac984ede268e00,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcdfbea7d3ca2bf4b925f43b12f7eceb, type: 2}
+    - target: {fileID: 8633277009101855933, guid: 2e8d28b89506ed145bac984ede268e00,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcdfbea7d3ca2bf4b925f43b12f7eceb, type: 2}
+    - target: {fileID: 8633277009104148852, guid: 2e8d28b89506ed145bac984ede268e00,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcdfbea7d3ca2bf4b925f43b12f7eceb, type: 2}
+    - target: {fileID: 8633277009372319001, guid: 2e8d28b89506ed145bac984ede268e00,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcdfbea7d3ca2bf4b925f43b12f7eceb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8d28b89506ed145bac984ede268e00, type: 3}
 --- !u!4 &270551461990655465 stripped

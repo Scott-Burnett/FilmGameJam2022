@@ -1154,6 +1154,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cooking
       objectReference: {fileID: 0}
+    - target: {fileID: 7197397891499826894, guid: 4f78d2e1fce3b164bae16c397b07baca,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7197397891499826895, guid: 4f78d2e1fce3b164bae16c397b07baca,
         type: 3}
       propertyPath: m_RootOrder
