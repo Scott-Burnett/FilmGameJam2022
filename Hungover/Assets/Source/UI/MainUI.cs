@@ -28,8 +28,15 @@ public class MainUI : MonoBehaviour
 
     [Header("Main Menu")]
     [SerializeField] private RawImage mainMenuImage;
-    [SerializeField] private GameObject mainMenuVideoPlayerGameObejct;
+    // [SerializeField] private GameObject mainMenuVideoPlayerGameObejct;
+    [SerializeField] private GameObject mainMenuGameObejct;
     [SerializeField] private StudioEventEmitter mainMenuTheme;
+
+    [Header("Credits")]
+    [SerializeField] private GameObject creditsGameObejct = null;
+    [SerializeField] private Image creditsTint;
+    [SerializeField] private RectTransform creditsText;
+    [SerializeField] private StudioEventEmitter creditsTheme;
 
     [Header("Player")]
     [SerializeField] public Interactor interactor;
@@ -66,6 +73,11 @@ public class MainUI : MonoBehaviour
         StartCoroutine(FadeMainMenuImage(new Color(0, 0, 0, 0), 6.0f));
     }
 
+    public void RollCredits()
+    {
+        StartCoroutine(DisableControlsAndFadeInMainMenuImage());
+    }
+
     private void Start()
     {
         inMainMenu = true;
@@ -80,7 +92,6 @@ public class MainUI : MonoBehaviour
             {
                 inMainMenu = false;
                 StartCoroutine(FadeOutMainMenuImageAndEnableControls());
-                mainMenuTheme.Stop();
             }
         }
     }
@@ -112,16 +123,57 @@ public class MainUI : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator FadeInCreditsTint(Color targetColor, float duration)
+    {
+        Color difference = targetColor - creditsTint.color;
+        Color colorRate = difference / duration;
+        for (float elapsedTime = 0.0f; elapsedTime < duration; elapsedTime += Time.deltaTime)
+        {
+            creditsTint.color += colorRate * Time.deltaTime;
+            yield return null;
+        }
+        creditsTint.color = targetColor;
+        yield return null;
+    }
+
+    IEnumerator ScrollCreditsText(Vector3 startPosition, Vector3 endPosition, float duration)
+    {
+        creditsText.localPosition = startPosition;
+        Vector3 distance = endPosition - startPosition;
+        Vector3 rate = distance / duration;
+
+        for (float elapsedTime = 0.0f; elapsedTime < duration; elapsedTime += Time.deltaTime)
+        {
+            creditsText.localPosition += rate * Time.deltaTime;
+            yield return null;
+        }
+        creditsText.localPosition = endPosition;
+        yield return null;
+    }
+
     IEnumerator FadeOutMainMenuImageAndEnableControls()
     {
         yield return FadeMainMenuImage(new Color(0, 0, 0, 0), 6.0f);
-        Destroy(mainMenuImage.gameObject);
-        mainMenuImage = null;
-        Destroy(mainMenuVideoPlayerGameObejct);
-        mainMenuVideoPlayerGameObejct = null;
-        
+        // Destroy(mainMenuImage.gameObject);
+        // mainMenuImage = null;
+        // Destroy(mainMenuVideoPlayerGameObejct);
+        // mainMenuVideoPlayerGameObejct = null;
+        mainMenuGameObejct.SetActive(false);
         interactor.SetControlsEnabled(true);
+        mainMenuTheme.Stop();
         yield return null;
+    }
+
+    IEnumerator DisableControlsAndFadeInMainMenuImage()
+    {
+        interactor.SetControlsEnabled(false);
+        mainMenuGameObejct.SetActive(true);
+        creditsTheme.Play();
+        yield return FadeCoroutine(new Color(0, 0, 0, 0), new Color(255, 255, 255, 1.0f), 2.0f);
+        yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 6.0f);
+        creditsGameObejct.SetActive(true);
+        yield return FadeInCreditsTint(new Color(0, 0, 0, 0.6f), 2.0f);
+        yield return ScrollCreditsText(new Vector3(0.0f, -1080.0f, 0.0f), new Vector3(0.0f, 1080.0f, 0.0f), 20.0f);
     }
 
     public void ShowDefaultCrosshair()
