@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using Hungover;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class MainUI : MonoBehaviour
     [Header("Main Menu")]
     [SerializeField] private RawImage mainMenuImage;
     [SerializeField] private GameObject mainMenuVideoPlayerGameObejct;
+    [SerializeField] private StudioEventEmitter mainMenuTheme;
 
     [Header("Player")]
     [SerializeField] public Interactor interactor;
@@ -78,6 +80,7 @@ public class MainUI : MonoBehaviour
             {
                 inMainMenu = false;
                 StartCoroutine(FadeOutMainMenuImageAndEnableControls());
+                mainMenuTheme.Stop();
             }
         }
     }
