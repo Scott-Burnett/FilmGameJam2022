@@ -35,7 +35,7 @@ public class MainUI : MonoBehaviour
 
     [Header("Credits")]
     [SerializeField] private GameObject creditsGameObejct = null;
-    [SerializeField] private Image creditsTint;
+    [SerializeField] private RawImage creditsTint;
     [SerializeField] private RectTransform creditsText;
     [SerializeField] private StudioEventEmitter creditsTheme;
 
@@ -188,12 +188,12 @@ public class MainUI : MonoBehaviour
     IEnumerator DisableControlsAndFadeInMainMenuImage()
     {
         interactor.SetControlsEnabled(false);
-        mainMenuGameObejct.SetActive(true);
+        // mainMenuGameObejct.SetActive(true);
         creditsTheme.Play();
         yield return FadeCoroutine(new Color(0, 0, 0, 0), new Color(255, 255, 255, 1.0f), 2.0f);
-        yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 4.0f);
+        // yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 4.0f);
         creditsGameObejct.SetActive(true);
-        yield return FadeInCreditsTint(new Color(0, 0, 0, 0.95f), 1.0f);
+        yield return FadeInCreditsTint(new Color(1, 1, 1, 1.0f), 4.0f);
         yield return ScrollCreditsText(new Vector3(-480.0f, -1169.3f, 0.0f), new Vector3(-480.0f, 2000.0f, 0.0f), 60.0f);
     }
 
