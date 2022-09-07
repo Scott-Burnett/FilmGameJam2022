@@ -38,6 +38,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private RawImage creditsTint;
     [SerializeField] private RectTransform creditsText;
     [SerializeField] private StudioEventEmitter creditsTheme;
+    [SerializeField] private GameObject quitButton;
 
     [Header("Player")]
     [SerializeField] public Interactor interactor;
@@ -84,6 +85,7 @@ public class MainUI : MonoBehaviour
         inMainMenu = true;
         interactor.SetControlsEnabled(false);
         creditsGameObejct.SetActive(false);
+        quitButton.SetActive(false);
     }
 
     private void Update()
@@ -188,13 +190,15 @@ public class MainUI : MonoBehaviour
     IEnumerator DisableControlsAndFadeInMainMenuImage()
     {
         interactor.SetControlsEnabled(false);
-        // mainMenuGameObejct.SetActive(true);
         creditsTheme.Play();
         yield return FadeCoroutine(new Color(0, 0, 0, 0), new Color(255, 255, 255, 1.0f), 2.0f);
-        // yield return FadeMainMenuImage(new Color(255, 255, 255, 1.0f), 4.0f);
         creditsGameObejct.SetActive(true);
         yield return FadeInCreditsTint(new Color(1, 1, 1, 1.0f), 4.0f);
         yield return ScrollCreditsText(new Vector3(-480.0f, -1169.3f, 0.0f), new Vector3(-480.0f, 2000.0f, 0.0f), 60.0f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        quitButton.SetActive(true);
+        yield return null;
     }
 
     public void ShowDefaultCrosshair()
@@ -215,5 +219,11 @@ public class MainUI : MonoBehaviour
     public void ShowCrosshair()
     {
         crosshair.enabled = true;
+    }
+
+    public void QuitApplication()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
     }
 }
