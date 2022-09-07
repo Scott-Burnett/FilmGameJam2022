@@ -194,7 +194,7 @@ public class MainUI : MonoBehaviour
         yield return FadeCoroutine(new Color(0, 0, 0, 0), new Color(255, 255, 255, 1.0f), 2.0f);
         creditsGameObejct.SetActive(true);
         yield return FadeInCreditsTint(new Color(1, 1, 1, 1.0f), 4.0f);
-        yield return ScrollCreditsText(new Vector3(-480.0f, -1169.3f, 0.0f), new Vector3(-480.0f, 2000.0f, 0.0f), 60.0f);
+        yield return ScrollCreditsText(new Vector3(-480.0f, -1169.3f, 0.0f), new Vector3(-480.0f, 1200.0f, 0.0f), 50.0f);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         quitButton.SetActive(true);

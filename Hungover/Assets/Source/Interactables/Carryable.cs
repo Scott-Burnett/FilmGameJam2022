@@ -23,7 +23,6 @@ namespace Hungover.Interactables
         protected Interactor interactor;
         protected Rigidbody thisRigidBody;
         private Vector3 previousPosition;
-        private float throwVelocityMultiplier = 2.0f;
 
         #endregion
 
