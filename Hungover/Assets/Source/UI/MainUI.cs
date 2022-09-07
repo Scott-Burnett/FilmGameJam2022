@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Hungover;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -23,6 +24,15 @@ public class MainUI : MonoBehaviour
     [SerializeField] public Sprite handCrosshairSprite;
     [SerializeField] public Sprite lockCrosshairSprite;
     [SerializeField] public Sprite unlockCrosshairSprite;
+
+    [Header("Main Menu")]
+    [SerializeField] private RawImage mainMenuImage;
+    [SerializeField] private GameObject mainMenuVideoPlayerGameObejct;
+
+    [Header("Player")]
+    [SerializeField] public Interactor interactor;
+
+    private bool inMainMenu = true;
 
     public void ShowText(string text)
     {
@@ -49,6 +59,29 @@ public class MainUI : MonoBehaviour
         StartCoroutine(FadeCoroutine(startColour, targetColour, lerpTime));
     }
 
+    public void FadeOutMainMenuImage()
+    {
+        StartCoroutine(FadeMainMenuImage(new Color(0, 0, 0, 0), 6.0f));
+    }
+
+    private void Start()
+    {
+        inMainMenu = true;
+        interactor.SetControlsEnabled(false);
+    }
+
+    private void Update()
+    {
+        if (inMainMenu)
+        {
+            if (Input.anyKey)
+            {
+                inMainMenu = false;
+                StartCoroutine(FadeOutMainMenuImageAndEnableControls());
+            }
+        }
+    }
+
     IEnumerator FadeCoroutine(Color startColour, Color targetColour, float lerpTime)
     {
         float timeElapsed = 0;
@@ -60,6 +93,31 @@ public class MainUI : MonoBehaviour
             yield return null;
         }
         inspectionFade.color = targetColour;
+        yield return null;
+    }
+
+    IEnumerator FadeMainMenuImage(Color targetColor, float duration)
+    {
+        Color difference = targetColor - mainMenuImage.color;
+        Color colorRate = difference / duration;
+        for (float elapsedTime = 0.0f; elapsedTime < duration; elapsedTime += Time.deltaTime)
+        {
+            mainMenuImage.color += colorRate * Time.deltaTime;
+            yield return null;
+        }
+        mainMenuImage.color = targetColor;
+        yield return null;
+    }
+
+    IEnumerator FadeOutMainMenuImageAndEnableControls()
+    {
+        yield return FadeMainMenuImage(new Color(0, 0, 0, 0), 6.0f);
+        Destroy(mainMenuImage.gameObject);
+        mainMenuImage = null;
+        Destroy(mainMenuVideoPlayerGameObejct);
+        mainMenuVideoPlayerGameObejct = null;
+        
+        interactor.SetControlsEnabled(true);
         yield return null;
     }
 

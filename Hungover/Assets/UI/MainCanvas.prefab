@@ -525,6 +525,9 @@ MonoBehaviour:
     type: 3}
   unlockCrosshairSprite: {fileID: 21300000, guid: 78de3cb3dcb68704bb5d33b4dc7c28e2,
     type: 3}
+  mainMenuImage: {fileID: 4264239505120851923}
+  mainMenuVideoPlayerGameObejct: {fileID: 8650787228233585760}
+  interactor: {fileID: 0}
 --- !u!1 &5853262090856215701
 GameObject:
   m_ObjectHideFlags: 0
