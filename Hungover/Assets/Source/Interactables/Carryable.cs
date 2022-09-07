@@ -13,6 +13,7 @@ namespace Hungover.Interactables
 
         [SerializeField] private Quaternion carryingOffset = Quaternion.identity;
         [SerializeField] private float dropSoundThreshold = 0.4f;
+        [SerializeField] private float startupSoundPreventionDelay = 5.0f;
         [SerializeField] private StudioEventEmitter dropSound = null;
  
         #endregion
@@ -79,7 +80,8 @@ namespace Hungover.Interactables
 
         protected virtual void OnCollisionEnter(Collision collision)
         {
-            if (collision.impulse.magnitude > dropSoundThreshold)
+            if (Time.time > startupSoundPreventionDelay &&
+                collision.impulse.magnitude > dropSoundThreshold)
             {
                 dropSound?.Play();
             }

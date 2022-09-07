@@ -312,12 +312,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hey Scottish just some TODO for tomorrow morning that I won't be around
-    to do. \r\nBug: Picking up carryables pushes the player controller and can cause
-    physics glitches\r\nTitle sequence: A simple sequence with a looping video from
-    Sam which takes any input to re-enable the control and uses MainUI.Instance.Fade
-    to fade in.\r\nCredit sequence: Just need to add a trigger to broken door which
-    enables credits UI (I didn't get around to making a sequence tonight)"
+  m_text: "A Game By Babelas Devs\r\n\r\nLevel Design - Scott Burnett \r\n                          
+    Roarke Angelbright\r\n\r\nAdditional Level Design - Samuel Burnett \r\n                                              
+    Matthew Mark Ibbetson \r\n                                               Bjorn
+    van de Veen\r\n\r\n\LPuzzle Design - Scott Burnett\r\n                            
+    Roarke Angelbright\r\n\r\nAdditional Puzzle Design - Samuel Burnett, \L\r\n                                                
+    Matthew Mark Ibbetson\L\r\n                                                 Bjorn
+    van de Veen\r\n\r\nAnimations - Samuel Burnett\r\n\r\n\LModels - Samuel Burnett\r\n\r\nTextures
+    - Samuel Burnett\r\n\r\nAdditional Visual Effects - Roarke Angelbright\r\n\r\nItem
+    Descriptions - Matthew Mark Ibbetson\r\n\r\nSource Control - Scott Burnett\r\n\r\nCode
+    - Scott Burnett\r\n             Roarke Angelbright\r\n\r\nBug Fixes - Scott Burnett\r\n                    
+    Roarke Angelbright\r\n\r\nSound Design - Matthew Mark Ibbetson\r\n\r\nSound Implementation
+    - Roarke Angelbright\r\n                                             Matthew
+    Mark Ibbetson\r\n                                             Scott Burnett\r\n\r\nTheme
+    Music - Matthew Mark Ibbetson\r\n\r\nScenario Design - Babelas Devs\L\L\r\n\r\nTeam
+    Mascot - The Blongi\r\n\r\nSpecial thanks to Ember for organising and hosting
+    the FilmJam"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c486cdf882d7f4942afcfe4edcf0fc85, type: 2}
   m_sharedMaterial: {fileID: -5580108892013933567, guid: c486cdf882d7f4942afcfe4edcf0fc85,
