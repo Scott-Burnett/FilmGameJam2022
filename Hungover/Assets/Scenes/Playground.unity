@@ -8033,7 +8033,7 @@ MonoBehaviour:
   isOpen: 0
   key: {fileID: 0}
   rotationAxis: {fileID: 1670155056}
-  openAngle: 87
+  openAngle: -87
   openDuration: 0.5
 --- !u!65 &1424617983
 BoxCollider:
@@ -8286,7 +8286,7 @@ MonoBehaviour:
   isOpen: 0
   key: {fileID: 0}
   rotationAxis: {fileID: 665809284}
-  openAngle: -87
+  openAngle: 87
   openDuration: 0.5
 --- !u!114 &1475413151
 MonoBehaviour:
@@ -14793,7 +14793,7 @@ MonoBehaviour:
   isOpen: 0
   key: {fileID: 0}
   rotationAxis: {fileID: 191204425}
-  openAngle: 87
+  openAngle: -87
   openDuration: 0.5
 --- !u!65 &1688658363
 BoxCollider:
@@ -15193,7 +15193,7 @@ MonoBehaviour:
   isOpen: 0
   key: {fileID: 0}
   rotationAxis: {fileID: 1934881608}
-  openAngle: -87
+  openAngle: 87
   openDuration: 0.5
 --- !u!114 &1807500769
 MonoBehaviour:
