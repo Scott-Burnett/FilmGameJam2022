@@ -64,8 +64,6 @@ namespace Hungover.Interactables
             {
                 Drop();
             }
-
-            previousPosition = transform.position;
         }
 
         public override void OnDispose()
@@ -126,7 +124,6 @@ namespace Hungover.Interactables
         {
             transform.parent = null;
             thisRigidBody.isKinematic = false;
-            thisRigidBody.velocity = (transform.position - previousPosition) * throwVelocityMultiplier / Time.deltaTime;
             SetLayerRecursively(Constants.interactableLayer);
             interactor.EndInteraction();
         }

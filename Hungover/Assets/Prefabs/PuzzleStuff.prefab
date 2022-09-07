@@ -140,7 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carryingOffset: {x: 0, y: 0, z: 0, w: 1}
   dropSoundThreshold: 0.4
-  dropSound: {fileID: 0}
+  startupSoundPreventionDelay: 5
+  dropSound: {fileID: 3102359503216865328}
 --- !u!1 &7192014461062281977
 GameObject:
   m_ObjectHideFlags: 0

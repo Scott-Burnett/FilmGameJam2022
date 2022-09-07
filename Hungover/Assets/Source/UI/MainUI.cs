@@ -83,6 +83,7 @@ public class MainUI : MonoBehaviour
     {
         inMainMenu = true;
         interactor.SetControlsEnabled(false);
+        creditsGameObejct.SetActive(false);
     }
 
     private void Update()

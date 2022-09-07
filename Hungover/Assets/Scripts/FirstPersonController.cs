@@ -401,6 +401,7 @@ namespace StarterAssets
 			playerCapsule.transform.localPosition = targetCapsuleCentre;
 			// CinemachineCameraTarget.transform.localPosition = targetCameraLocalPosition;
 			characterAnimator.transform.localPosition = targetAnimatorLocalPosition;
+			// Grounded = false;
 			yield return null;
 		}
 
