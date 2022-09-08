@@ -3724,6 +3724,7 @@ GameObject:
   - component: {fileID: 524784446}
   - component: {fileID: 524784448}
   - component: {fileID: 524784447}
+  - component: {fileID: 524784449}
   m_Layer: 7
   m_Name: BananaBunch
   m_TagString: Untagged
@@ -3776,6 +3777,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.18
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &524784449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524784445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1954703936
+      Data2: 1078709908
+      Data3: -1962284402
+      Data4: -1771948280
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Banana Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &538733795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10846,6 +10877,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0017823144, y: 0.004204713, z: 0.0007020066}
   m_Center: {x: 0.00004154013, y: -0.000012273203, z: -0.000014178372}
+--- !u!114 &973536797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973536792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1954703936
+      Data2: 1078709908
+      Data3: -1962284402
+      Data4: -1771948280
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Banana Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &974738732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13076,6 +13137,7 @@ GameObject:
   - component: {fileID: 1369948296}
   - component: {fileID: 1369948298}
   - component: {fileID: 1369948297}
+  - component: {fileID: 1369948299}
   m_Layer: 7
   m_Name: DrawerBananas
   m_TagString: Untagged
@@ -13133,6 +13195,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5503464, y: 0.86844313, z: 0.6436138}
   m_Center: {x: 0.01112175, y: -0.027665913, z: -0.03903103}
+--- !u!114 &1369948299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369948295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1954703936
+      Data2: 1078709908
+      Data3: -1962284402
+      Data4: -1771948280
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Banana Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1388321662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18844,6 +18936,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0066420524, y: 0.006642051, z: 0.0025189428}
   m_Center: {x: 0, y: -0.0000000037252903, z: 0.0013149242}
+--- !u!114 &1500238492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500238487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1954703936
+      Data2: 1078709908
+      Data3: -1962284402
+      Data4: -1771948280
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Banana Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1505632919
 PrefabInstance:
   m_ObjectHideFlags: 0
