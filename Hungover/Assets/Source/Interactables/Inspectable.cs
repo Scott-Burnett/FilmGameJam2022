@@ -34,6 +34,7 @@ public class Inspectable : Interactable
         this.interactor = interactor;
         this.interactor.state = Interactor.State.Inspecting;
         this.interactor.SetControlsEnabled(false);
+        interactor.Controller.TransitionToIdleAnimation();
         MainUI.Instance.Fade(Color.clear, new Color(0, 0, 0, 0.75f), 0.75f);
         MainUI.Instance.ShowText(description);
         MainUI.Instance.HideCrosshair();

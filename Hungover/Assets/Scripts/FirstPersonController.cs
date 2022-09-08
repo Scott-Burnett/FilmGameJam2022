@@ -424,7 +424,7 @@ namespace StarterAssets
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
 
-		public void StopAllAnimations()
+		public void TransitionToIdleAnimation()
 		{
 			characterAnimator.CrossFade("Idle", 0.1f, 0);
 		}

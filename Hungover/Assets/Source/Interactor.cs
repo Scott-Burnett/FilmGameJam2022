@@ -33,6 +33,7 @@ namespace Hungover
         }
 
         public Transform CarryPoint => carryPoint;
+        public StarterAssets.FirstPersonController Controller => firstPersonControls;
         public Interactable currentInteractable { get; set; }
         public Interactable candidate { get; private set; }
 

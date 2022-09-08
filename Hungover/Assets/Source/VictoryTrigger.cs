@@ -10,7 +10,7 @@ namespace Hungover
         private void OnTriggerEnter(Collider other)
         {
             MainUI.Instance.RollCredits();
-            controller.StopAllAnimations();
+            controller.TransitionToIdleAnimation();
         }
     }
 }
