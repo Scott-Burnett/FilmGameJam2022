@@ -26,7 +26,7 @@ public class SafeInteractable : Interactable
         this.interactor.SetControlsEnabled(true);
         this.interactor.EndInteraction();
         this.interactor = null;
-        MainUI.Instance.HideText();
+       // MainUI.Instance.HideText();
         MainUI.Instance.HideKeypad();
     }
 
@@ -51,7 +51,7 @@ public class SafeInteractable : Interactable
                             failEmitter?.Play();
                         });
 
-        MainUI.Instance.ShowText("Enter safe code...");
+        //MainUI.Instance.ShowText("Enter safe code...");
     }
 
     public override void OnUpdate()
