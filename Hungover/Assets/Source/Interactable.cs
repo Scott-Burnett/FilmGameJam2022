@@ -25,7 +25,7 @@ namespace Hungover
         public virtual void OnUpdate(){}
         public virtual void OnDispose(){}
 
-        protected void SetLayerRecursively(int layerIndex)
+        protected virtual void SetLayerRecursively(int layerIndex)
         {
             gameObject.layer = layerIndex;
             foreach (Transform item in transform)

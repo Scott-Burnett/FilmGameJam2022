@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inspectable : Interactable
 {
     [SerializeField] string description;
+    [SerializeField] GameObject objectToInspect;
 
     private Interactor interactor;
 
@@ -13,9 +14,15 @@ public class Inspectable : Interactable
 
     protected override void Initialise()
     {
-        startPosition = transform.position;
-        startRotation = transform.rotation;
+        if (objectToInspect == null)
+        {
+            objectToInspect = gameObject;
+        }
+
+        startPosition = objectToInspect.transform.position;
+        startRotation = objectToInspect.transform.rotation;
     }
+
     public override void OnDispose()
     {
         this.interactor.SetControlsEnabled(true);
@@ -26,7 +33,7 @@ public class Inspectable : Interactable
         MainUI.Instance.ShowCrosshair();
         SetLayerRecursively(Constants.interactableLayer);
         LerpTo(startPosition, startRotation);
-        transform.rotation = startRotation;
+        objectToInspect.transform.rotation = startRotation;
     }
 
     public override void OnInteract(Interactor interactor)
@@ -45,8 +52,8 @@ public class Inspectable : Interactable
     {
         float xRotation = Input.GetAxis("Mouse X") * 3;
         float yRotation = Input.GetAxis("Mouse Y") * 3;
-        transform.RotateAround(interactor.InspectionPoint.transform.position, interactor.InspectionPoint.transform.up, -xRotation);
-        transform.RotateAround(interactor.InspectionPoint.transform.position, interactor.InspectionPoint.transform.right, yRotation);
+        objectToInspect.transform.RotateAround(interactor.InspectionPoint.transform.position, interactor.InspectionPoint.transform.up, -xRotation);
+        objectToInspect.transform.RotateAround(interactor.InspectionPoint.transform.position, interactor.InspectionPoint.transform.right, yRotation);
 
         if (Input.GetKeyDown(Constants.disposeKeyCode))
         {
@@ -56,7 +63,7 @@ public class Inspectable : Interactable
 
     void LerpTo(Vector3 inspectionPosition, Quaternion rotation)
     {
-        StartCoroutine(LerpOverTime(gameObject, inspectionPosition, rotation, 0.33f));
+        StartCoroutine(LerpOverTime(objectToInspect, inspectionPosition, rotation, 0.33f));
     }
 
     IEnumerator LerpOverTime(GameObject go, Vector3 destination, Quaternion rotation, float lerpTime)
@@ -68,14 +75,14 @@ public class Inspectable : Interactable
 
         while (timeElapsed < lerpTime)
         {
-            transform.position = Vector3.Lerp(currentPosition, destination, (timeElapsed / lerpTime));
-            transform.rotation = Quaternion.Lerp(currentRotation, rotation, (timeElapsed / lerpTime));
+            objectToInspect.transform.position = Vector3.Lerp(currentPosition, destination, (timeElapsed / lerpTime));
+            objectToInspect.transform.rotation = Quaternion.Lerp(currentRotation, rotation, (timeElapsed / lerpTime));
             timeElapsed += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.position = destination;
+        objectToInspect.transform.position = destination;
         yield return null;
     }
 
