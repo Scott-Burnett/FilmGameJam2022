@@ -7,6 +7,7 @@ using FMODUnity;
 public class CookingPot : Interactable
 {
     [SerializeField] GameObject c4Prefab;
+    [SerializeField] ParticleSystem splashEffect;
     [Header("Positions")]
     [SerializeField] Transform dropPoint;
     [SerializeField] Transform cookPoint;
@@ -80,6 +81,7 @@ public class CookingPot : Interactable
         yield return new WaitForSeconds(0.25f);
 
         Destroy(item);
+        splashEffect.Play();
         ingredientAdded.Play();
         CheckIngredients();
 
