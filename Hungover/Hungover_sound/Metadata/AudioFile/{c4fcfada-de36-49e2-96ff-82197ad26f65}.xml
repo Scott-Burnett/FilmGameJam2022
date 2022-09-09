@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c4fcfada-de36-49e2-96ff-82197ad26f65}">
+		<property name="assetPath">
+			<value>Icicle Break.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4671875000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4ff0cbdd-f761-4ee5-854f-3a2f48cb0520}</destination>
+		</relationship>
+	</object>
+</objects>
