@@ -10,10 +10,14 @@ namespace Hungover.Interactables.Barricades.BreakableBarricades
         {
             StartCoroutine(WaitBeforeDestroy());
         }
+
         IEnumerator WaitBeforeDestroy()
         {
             yield return new WaitForSeconds(0.25f);
             Destroy(this.gameObject);
         }
+
+        public override Sprite Indicator() => 
+            MainUI.Instance.handCrosshairSprite;
     }
 }
