@@ -100,8 +100,6 @@ namespace Hungover.Interactables
             Vector3 currentPosition = transform.position;
             Quaternion currentRotation = transform.rotation;
 
-            // Quaternion targetRotation = interactor.CarryPoint.rotation * carryingOffset;
-
             while (timeElapsed < lerpTime)
             {
                 transform.position = Vector3.Lerp(currentPosition, interactor.CarryPoint.position, (timeElapsed / lerpTime));
