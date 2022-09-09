@@ -18,6 +18,14 @@ namespace Hungover.Interactables
  
         #endregion
 
+        #region Constants
+
+        private const int interactionLayerMask = Constants.interactableLayerMask |
+                                                 Constants.doorLayerMask |
+                                                 Constants.defaultLayerMask;
+
+        #endregion
+
         #region Private Members
 
         protected Interactor interactor;
@@ -67,6 +75,7 @@ namespace Hungover.Interactables
 
         public override void OnDispose()
         {
+            CheckForWallHacks();
             transform.parent = null;
             thisRigidBody.isKinematic = false;
             
@@ -100,19 +109,17 @@ namespace Hungover.Interactables
             Vector3 currentPosition = transform.position;
             Quaternion currentRotation = transform.rotation;
 
-            Quaternion targetRotation = interactor.CarryPoint.rotation * carryingOffset;
-
             while (timeElapsed < lerpTime)
             {
                 transform.position = Vector3.Lerp(currentPosition, interactor.CarryPoint.position, (timeElapsed / lerpTime));
-                transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, (timeElapsed / lerpTime));
+                transform.rotation = Quaternion.Lerp(currentRotation, interactor.CarryPoint.rotation * carryingOffset, (timeElapsed / lerpTime));
                 timeElapsed += Time.deltaTime;
 
                 yield return null;
             }
 
             transform.position = interactor.CarryPoint.position;
-            transform.rotation = targetRotation;
+            transform.rotation = interactor.CarryPoint.rotation * carryingOffset;
             
             transform.parent = interactor.CarryPoint;
             
@@ -121,10 +128,39 @@ namespace Hungover.Interactables
 
         private void Drop()
         {
+            CheckForWallHacks();
             transform.parent = null;
             thisRigidBody.isKinematic = false;
             SetLayerRecursively(Constants.interactableLayer);
             interactor.EndInteraction();
+        }
+
+        private void CheckForWallHacks()
+        {
+            Vector3 direction = interactor.CarryPoint.position - interactor.transform.position;
+            float distance = Vector3.Distance(interactor.CarryPoint.position, interactor.transform.position);
+
+            if (Physics.Raycast(interactor.transform.position, direction, out RaycastHit hit, distance, interactionLayerMask, QueryTriggerInteraction.Ignore))
+            {
+                transform.position = interactor.transform.position + ((hit.point - interactor.transform.position) * 0.6f);
+            }
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (interactor == null)
+            {
+                return;
+            }
+
+            Vector3 direction = interactor.CarryPoint.position - interactor.transform.position;
+            float distance = Vector3.Distance(interactor.CarryPoint.position, interactor.transform.position);
+            Gizmos.color = Color.magenta;
+
+            if (Physics.Raycast(interactor.transform.position, direction, out RaycastHit hit, distance, interactionLayerMask, QueryTriggerInteraction.Ignore))
+            {
+                Gizmos.DrawSphere(hit.point, 0.1f);
+            }
         }
 
         #endregion
