@@ -6,6 +6,8 @@ namespace Hungover.Interactables.Barricades.BreakableBarricades
 {
     public class Icicle : BreakableBarrricade<Blowtorch>
     {
+
+        [SerializeField] ParticleSystem iceBreakEffect;
         protected override void OnUnlock(Interactor interactor)
         {
             StartCoroutine(WaitBeforeDestroy());
@@ -13,6 +15,7 @@ namespace Hungover.Interactables.Barricades.BreakableBarricades
         IEnumerator WaitBeforeDestroy()
         {
             yield return new WaitForSeconds(0.25f);
+            iceBreakEffect.Play();
             Destroy(this.gameObject);
         }
     }
