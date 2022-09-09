@@ -426,7 +426,14 @@ namespace StarterAssets
 
 		public void TransitionToIdleAnimation()
 		{
-			characterAnimator.CrossFade("Idle", 0.1f, 0);
+			if (crouched)
+			{
+				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+			}
+			else
+			{
+				characterAnimator.CrossFade("Idle", 0.1f, 0);
+			}
 		}
 	}
 }
