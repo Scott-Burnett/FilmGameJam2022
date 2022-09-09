@@ -142,7 +142,7 @@ namespace Hungover.Interactables
 
             if (Physics.Raycast(interactor.transform.position, direction, out RaycastHit hit, distance, interactionLayerMask, QueryTriggerInteraction.Ignore))
             {
-                transform.position = interactor.transform.position + ((hit.point - interactor.transform.position) * 0.9f);
+                transform.position = interactor.transform.position + ((hit.point - interactor.transform.position) * 0.6f);
             }
         }
 
