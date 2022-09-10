@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{24ad2494-9759-409e-8b19-15e2a054c639}">
+		<property name="name">
+			<value>Carryables And Inspectables</value>
+		</property>
+		<relationship name="folder">
+			<destination>{075d6875-5bfb-4a5e-aac6-2a71e4c8abf9}</destination>
+		</relationship>
+	</object>
+</objects>

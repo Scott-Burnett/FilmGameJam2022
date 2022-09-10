@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
+using Hungover;
 
 namespace StarterAssets
 {
@@ -11,6 +13,10 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		[SerializeField] Animator characterAnimator;
+		bool crouched = false;
+		bool walking = false;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -20,6 +26,7 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+		
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -42,6 +49,22 @@ namespace StarterAssets
 		public float GroundedRadius = 0.5f;
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
+
+		[Space(10)]
+		[Header("Crouching")]
+
+		[SerializeField]
+		private float crouchHeightReduction = 0.75f;
+		[SerializeField, Range(0.0f, 1.0f)]
+		private float cameraHightReductionFactor = 0.5f;
+		[SerializeField]
+		private float crouchDuration = 0.5f;
+		[SerializeField]
+		private CapsuleCollider playerCapsule = null;
+		[SerializeField] 
+		private FMODUnity.StudioGlobalParameterTrigger crouchTrigger;
+		[SerializeField] 
+		private FMODUnity.StudioGlobalParameterTrigger standTrigger;
 
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -73,6 +96,22 @@ namespace StarterAssets
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
+
+		// private bool crouching;
+		private bool bumpingHead;
+		private Coroutine currentCrouchCoroutine = null;
+		private float initialCapsuleHeight;
+		private float crouchingCapsuleHeight;
+		private float initialControllerHeight;
+		private float crouchingControllerHeight;
+		private Vector3 initialCapsuleCentre;
+		private Vector3 crouchingCapsuleCentre;
+		private Vector3 initialCameraLocalPosition;
+		private Vector3 crouchingCameraLocalPosition;
+		private Vector3 initialAnimatorLocalPosition;
+		private Vector3 crouchingAnimatorLocalPosition;
+		private const int standUpCheckLayerMask = Constants.everythingLayerMask ^
+												  Constants.characterLayerMask;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -108,6 +147,29 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			// Crouch Stuff
+			initialCapsuleHeight = playerCapsule.height;
+			crouchingCapsuleHeight = initialCapsuleHeight - crouchHeightReduction;
+
+			initialControllerHeight = _controller.height;
+			crouchingControllerHeight = initialControllerHeight - crouchHeightReduction;
+
+			initialCapsuleCentre = playerCapsule.transform.localPosition;
+			crouchingCapsuleCentre = new Vector3(initialCapsuleCentre.x,
+												 initialCapsuleCentre.y - crouchHeightReduction * 0.5f, 
+												 initialCapsuleCentre.z);
+
+			initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
+			crouchingCameraLocalPosition = new Vector3(initialCameraLocalPosition.x,
+													   initialCameraLocalPosition.y - crouchHeightReduction * cameraHightReductionFactor,
+													   initialCameraLocalPosition.z);
+
+			initialAnimatorLocalPosition = characterAnimator.transform.localPosition;
+			crouchingAnimatorLocalPosition = new Vector3(initialAnimatorLocalPosition.x,
+														 initialAnimatorLocalPosition.y + crouchHeightReduction,
+														 initialAnimatorLocalPosition.z);
+			crouched = false;
 		}
 
 		private void Update()
@@ -115,6 +177,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Crouch();
 		}
 
 		private void LateUpdate()
@@ -153,6 +216,34 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			if (_input.move.magnitude > 0 && !walking)
+			{
+				walking = true;
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Walk", 0.1f, 0);
+				}
+				
+			}
+			else if(_input.move.magnitude <= 0 && walking)
+			{
+				walking = false;
+				if (crouched)
+				{
+					characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+				}
+				else
+				{
+					characterAnimator.CrossFade("Idle", 0.1f, 0);
+				}
+				
+			}
+
+			
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -200,10 +291,10 @@ namespace StarterAssets
 
 		private void JumpAndGravity()
 		{
-			if (Grounded)
-			{
-				// reset the fall timeout timer
-				_fallTimeoutDelta = FallTimeout;
+			// if (Grounded)
+			// {
+			// 	// reset the fall timeout timer
+			// 	_fallTimeoutDelta = FallTimeout;
 
 				// stop our velocity dropping infinitely when grounded
 				if (_verticalVelocity < 0.0f)
@@ -211,39 +302,107 @@ namespace StarterAssets
 					_verticalVelocity = -2f;
 				}
 
-				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-				{
-					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-				}
+			// 	// Jump
+			// 	if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+			// 	{
+			// 		// the square root of H * -2 * G = how much velocity needed to reach desired height
+			// 		_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+			// 	}
 
-				// jump timeout
-				if (_jumpTimeoutDelta >= 0.0f)
-				{
-					_jumpTimeoutDelta -= Time.deltaTime;
-				}
-			}
-			else
-			{
-				// reset the jump timeout timer
-				_jumpTimeoutDelta = JumpTimeout;
+			// 	// jump timeout
+			// 	if (_jumpTimeoutDelta >= 0.0f)
+			// 	{
+			// 		_jumpTimeoutDelta -= Time.deltaTime;
+			// 	}
+			// }
+			// else
+			// {
+			// 	// reset the jump timeout timer
+			// 	_jumpTimeoutDelta = JumpTimeout;
 
-				// fall timeout
-				if (_fallTimeoutDelta >= 0.0f)
-				{
-					_fallTimeoutDelta -= Time.deltaTime;
-				}
+			// 	// fall timeout
+			// 	if (_fallTimeoutDelta >= 0.0f)
+			// 	{
+			// 		_fallTimeoutDelta -= Time.deltaTime;
+			// 	}
 
-				// if we are not grounded, do not jump
-				_input.jump = false;
-			}
+			// 	// if we are not grounded, do not jump
+			// 	_input.jump = false;
+			// }
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+		}
+
+		private void Crouch()
+		{
+			if (Input.GetKeyDown(Constants.crouchKey))
+			{
+				if (currentCrouchCoroutine != null)
+				{
+					StopCoroutine(currentCrouchCoroutine);
+				}
+
+				crouched = !crouched;
+
+				if (crouched)
+				{
+					MoveSpeed = 0.5f;
+					crouchTrigger.TriggerParameters();
+					characterAnimator.CrossFadeInFixedTime("Crawl Idle", crouchDuration, 0);
+					currentCrouchCoroutine = StartCoroutine(LerpCrouchingstate(crouchingCapsuleHeight, crouchingControllerHeight, crouchingCapsuleCentre, crouchingCameraLocalPosition, crouchingAnimatorLocalPosition));
+				}
+				else
+				{
+					MoveSpeed = 2;
+					standTrigger.TriggerParameters();
+					characterAnimator.CrossFadeInFixedTime("Idle", crouchDuration, 0);
+					currentCrouchCoroutine = StartCoroutine(LerpCrouchingstate(initialCapsuleHeight, initialControllerHeight, initialCapsuleCentre, initialCameraLocalPosition, initialAnimatorLocalPosition));
+				}
+
+			}
+		}
+
+		private IEnumerator LerpCrouchingstate(float targetCapsuleHeight, 
+											   float targetControllerHeight,
+											   Vector3 targetCapsuleCentre,
+											   Vector3 targetCameraLocalPosition,
+											   Vector3 targetAnimatorLocalPosition)
+		{
+			float capsuleHeightChange = targetCapsuleHeight - playerCapsule.height;
+			float crouchRate = capsuleHeightChange / crouchDuration;
+
+			for (float elapsedTime = 0.0f; elapsedTime < crouchDuration; elapsedTime += Time.deltaTime)
+			{
+				float distanceThisFrame = crouchRate * Time.deltaTime;
+
+				Vector3 headCheckPosition = playerCapsule.transform.position + playerCapsule.transform.up * distanceThisFrame;
+				bumpingHead = Physics.CheckSphere(headCheckPosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+				if (bumpingHead)
+				{
+					yield break;
+				}
+
+				playerCapsule.height += distanceThisFrame;
+				_controller.height += distanceThisFrame;
+				playerCapsule.transform.localPosition += new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				// _controller.center -= new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+				// CinemachineCameraTarget.transform.localPosition += new Vector3(0.0f, distanceThisFrame * cameraHightReductionFactor, 0.0f);
+				characterAnimator.transform.localPosition -= new Vector3(0.0f, distanceThisFrame * 0.5f, 0.0f);
+
+				yield return null;
+			}
+
+			playerCapsule.height = targetCapsuleHeight;
+			_controller.height = targetControllerHeight;
+			playerCapsule.transform.localPosition = targetCapsuleCentre;
+			// CinemachineCameraTarget.transform.localPosition = targetCameraLocalPosition;
+			characterAnimator.transform.localPosition = targetAnimatorLocalPosition;
+			// Grounded = false;
+			yield return null;
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -263,6 +422,18 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		public void TransitionToIdleAnimation()
+		{
+			if (crouched)
+			{
+				characterAnimator.CrossFade("Crawl Idle", 0.1f, 0);
+			}
+			else
+			{
+				characterAnimator.CrossFade("Idle", 0.1f, 0);
+			}
 		}
 	}
 }

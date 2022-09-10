@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2ddd04d7-e634-45fc-adfe-622268501d2e}">
+		<property name="assetPath">
+			<value>Gunpowder Interact.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.87760416666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4ff0cbdd-f761-4ee5-854f-3a2f48cb0520}</destination>
+		</relationship>
+	</object>
+</objects>

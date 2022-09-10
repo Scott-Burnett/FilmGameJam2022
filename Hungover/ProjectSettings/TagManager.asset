@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - LevelBlockout
+  - Plastic
+  - Chemical
+  - Gunpowder
   layers:
   - Default
   - TransparentFX
@@ -12,17 +16,17 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Door
+  - Interactable
   - Character
   - Ground
+  - Inspecting
+  - FloorSurfaceTriggers
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - carrying
+  - VICTORY
   - 
   - 
   - 

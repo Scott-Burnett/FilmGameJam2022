@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8038375786310006170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8038375786310006150}
+  - component: {fileID: 8038375786310006149}
+  - component: {fileID: 8038375786310006148}
+  - component: {fileID: 8038375786310006171}
+  m_Layer: 7
+  m_Name: Chicken
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8038375786310006150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038375786310006170}
+  m_LocalRotation: {x: 0.15223081, y: -0.06422274, z: -0.025629643, w: 0.98592305}
+  m_LocalPosition: {x: 7.0894833, y: 0.89813906, z: -5.021629}
+  m_LocalScale: {x: 0.49536, y: 0.49536, z: 0.49536}
+  m_Children:
+  - {fileID: 7495315022841193948}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 17.271, y: -8.093, z: -4.209}
+--- !u!65 &8038375786310006149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038375786310006170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5333539, y: 0.3090051, z: 0.51091933}
+  m_Center: {x: -0.0044870377, y: 0.06281774, z: -0.0067304373}
+--- !u!114 &8038375786310006148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038375786310006170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e0047ad7e23974083441bfc63f4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "Leftovers from an indoor braai? These ous are cooked\u2026 I should
+    see if there\u2019s some fresh chow in the fridge."
+--- !u!114 &8038375786310006171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038375786310006170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 588251594
+      Data2: 1291974519
+      Data3: 1916769445
+      Data4: -942696048
+    Path: event:/SFX/Interaction Sounds/Carryables And Inspectables/Braai Meat Interact
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1001 &8038375786654482999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8038375786310006150}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.012633938
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.030406702
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.018990576
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79bea6f229770ed4797aa8db6efcb0f2, type: 2}
+    - target: {fileID: 919132149155446097, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_Name
+      value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd, type: 3}
+--- !u!4 &7495315022841193948 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cbc90ebe1d0ae1a499a92431cc4f7cbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 8038375786654482999}
+  m_PrefabAsset: {fileID: 0}
